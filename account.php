@@ -51,7 +51,7 @@
 
     <script src="https://kit.fontawesome.com/736d7541bb.js" crossorigin="anonymous"></script>
 
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="style.css?v=1">
     <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
     <link rel="manifest" href="manifest.json">
 
@@ -184,13 +184,15 @@
 
                     if($result = $connection->query($sql)){
 
-                        echo "<span>Rozegrane gry: ".(intval($result['win_count']) + intval($result['loose_count']))."</span>";
-                        echo "<span>Wygrane: ".$result['win_count']."</span>";
-                        echo "<span>Wygrane: ".$result['loose_count']."</span>";
+                        $result = $result->fetch_assoc();
+
+                        echo "<span class='pong_score'>Rozegrane gry<br><br> ".(intval($result['win_count']) + intval($result['loose_count']))."</span>";
+                        echo "<span class='pong_score'>Wygrane<br><br> ".$result['win_count']."</span>";
+                        echo "<span class='pong_score'>Przegrane<br><br> ".$result['loose_count']."</span>";
 
                     }
 
-                    //$connection->close();
+                    $connection->close();
                     
                 ?>
 

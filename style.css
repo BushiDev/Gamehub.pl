@@ -698,6 +698,84 @@
 
         }
 
+        main.account > article.scoreboards{
+
+            position: absolute;
+            top: 50vh;
+            width: 100vw;
+
+        }
+
+        main.account > article.scoreboards > h2{
+
+            text-align: center;
+            color: var(--text);
+
+            font-size: 4rem;
+            margin-bottom: 5vh;
+
+        }
+
+        main.account > article.scoreboards > div#pong_scores{
+
+            width: 72vw;
+            height: 21vh;
+
+            margin-left: auto;
+            margin-right: auto;
+
+            background-color: var(--main-shade);
+
+        }
+
+        main.account > article.scoreboards > div#pong_scores > span:first-of-type{
+
+            display: inline-block;
+            width: 72vw;
+            height: 7vh;
+            background-color: var(--secondary-color);
+
+            line-height: 7vh;
+
+            color: var(--main-color);
+            font-size: 3rem;
+            font-weight: bold;
+
+        }
+
+        main.account > article.scoreboards > div#pong_scores > span.pong_score{
+
+            display: inline-block;
+
+            width: 24vw;
+            height: 14vh;
+
+            color: var(--text);
+
+            font-size: 2rem;
+            font-weight: bold;
+
+            box-sizing: border-box;
+
+            padding-top: 3vh;
+
+            border-left: 0.5vw solid var(--main-color);
+            border-right: 0.5vw solid var(--main-color);
+
+        }
+
+        main.account > article.scoreboards > div#pong_scores > span.pong_score:first-of-type{
+
+            border-left: none;
+
+        }
+
+        main.account > article.scoreboards > div#pong_scores > span.pong_score:last-of-type{
+
+            border-right: none;
+
+        }
+
         main.settings{
 
             font-size: 3rem;
