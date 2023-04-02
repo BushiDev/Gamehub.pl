@@ -110,15 +110,14 @@
                     if($row = $result->fetch_assoc()){
 
                         $sql = 'UPDATE users SET show_name = "player_'.$row['id'].'" WHERE id = '.$row['id'];
+                        $connection->query($sql);
 
+                        $sql = 'INSERT INTO pong_scoreboard("player_id") VALUES ("'.$row['id'].'")';
                         $connection->query($sql);
 
                         $subject = "Gamehub - Rejestracja";
-
                         $message = "Dziękujemy za rejestrację w naszym serwisie. Prosimy o potwierdzenie adresu e-mail, poprzez kliknięcię poniższego linku. Życzczymy miłego spędzania czasu, na naszej stronie <br>";
-
                         $link = "https://127.0.0.1/gamehub.pl/verify_email.php?id=".$row['id'];
-
                         $message .= "<a href='".$link."'>".$link."</a>";
 
                         //if(mail($_POST['e-mail'], $subject, $message)){

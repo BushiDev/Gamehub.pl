@@ -14,6 +14,7 @@ RewriteRule rankingi leaderboards.php
 RewriteRule logowanie login.php
 RewriteRule rejestracja register.php
 RewriteRule przypomnij-haslo password.php
+RewriteRule wyloguj logout_script.php
 
 ErrorDocument 403 http://localhost/Gamehub.pl/error.php?code=403
 ErrorDocument 404 http://localhost/Gamehub.pl/error.php?code=404

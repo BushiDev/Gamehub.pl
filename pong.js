@@ -327,6 +327,11 @@ document.addEventListener("DOMContentLoaded", function(){
         if(player_data.points == 10){
 
             context.fillText("You win!", canvas_data.size.width / 2, canvas_data.size.height / 2);
+
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.open("GET", "pong_score.php?option=win");
+            xmlhttp.send();
+
             setTimeout(rotate("portrait"), 2000);
 
         }else{
@@ -361,6 +366,11 @@ document.addEventListener("DOMContentLoaded", function(){
         if(enemy_data.points == 10){
 
             context.fillText("You loose!", canvas_data.size.width / 2, canvas_data.size.height / 2);
+
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.open("GET", "pong_score.php?option=loose");
+            xmlhttp.send();
+
             setTimeout(rotate("portrait"), 2000);
 
         }else{

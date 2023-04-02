@@ -9,7 +9,6 @@
     }
 
     require_once("db_data.php");
-
     $connection = new mysqli($db_host, $db_user, $db_password, $db_name);
     if($connection->connect_errno == 0){
 
@@ -39,8 +38,6 @@
         }
 
     }
-
-    $connection->close();
 
 ?>
 
@@ -108,7 +105,7 @@
 
         <h1 id="player_welcome">Witaj <?php echo $_SESSION['user_data']['show_name']; ?>!</h1>
 
-        <a href="logout_script.php">Wyloguj</a>
+        <a href="wyloguj">Wyloguj</a>
 
         <article class="achievements">
         
@@ -169,19 +166,37 @@
                     echo "<h2>Przykro nam. Nie możemy nawiązać połączenia z serwerem</h2>";
 
                 }
-
-                $connection->close();
             
             ?>
         
         </article>
 
-        <!--<article class="scoreboards">
+        <article class="scoreboards">
 
             <h2>Twoje statystyki</h2>
-            
+            <div id="pong_scores">
 
-        </article>-->
+                <span>Pong</span>
+                    
+                <?php
+
+                    $sql = 'SELECT * FROM pong_scoreboard WHERE player_id = '.$_SESSION['user_data']['id'];
+
+                    if($result = $connection->query($sql)){
+
+                        echo "<span>Rozegrane gry: ".(intval($result['win_count']) + intval($result['loose_count']))."</span>";
+                        echo "<span>Wygrane: ".$result['win_count']."</span>";
+                        echo "<span>Wygrane: ".$result['loose_count']."</span>";
+
+                    }
+
+                    //$connection->close();
+                    
+                ?>
+
+            </div>            
+
+        </article>
 
     </main>
     
