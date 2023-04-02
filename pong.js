@@ -14,18 +14,19 @@ document.addEventListener("DOMContentLoaded", function(){
 
         },
 
-        background_color: "#c0c0c0",
+        //background_color: "#c0c0c0",
+        background_color: "#272727",
 
         lines: {
 
             sizes: {
 
                 width: screen.width / 128,
-                height: screen.height / 30
+                height: screen.height / 50
 
             },
 
-            color: "#272727"
+            color: "#fff"
 
         },
 
@@ -38,12 +39,9 @@ document.addEventListener("DOMContentLoaded", function(){
             x3: screen.width,
             y: screen.height / 2,
 
-            color1: "#272727",
+            /*color1: "#272727",
             color2: "#00f",
-            color3: "#f00",
-
-            arc1: 2 * Math.PI,
-            arc2: -Math.PI,
+            color3: "#f00",*/
 
             radius: screen.height / 4
 
@@ -88,7 +86,7 @@ document.addEventListener("DOMContentLoaded", function(){
 
         speed: {
 
-            normal: 3,
+            normal: 4,
             run: 12
 
         },
@@ -108,12 +106,12 @@ document.addEventListener("DOMContentLoaded", function(){
 
         },
 
-        color: "#a0a",
+        color: "#999",
 
         speed: {
 
-            x: 3,
-            y: 2
+            x: 12,
+            y: 4
 
         }
 
@@ -127,30 +125,33 @@ document.addEventListener("DOMContentLoaded", function(){
         context.fillStyle = canvas_data.lines.color;
         for(var i = canvas_data.lines.sizes.height / 2; i < canvas_data.size.height; i += canvas_data.lines.sizes.height){
 
-            if(i < (canvas_data.size.height / 3) - canvas_data.lines.sizes.height * 2 || i > (canvas_data.size.height / 3 * 2) + canvas_data.lines.sizes.height * 2 ){
+        //if(i < (canvas_data.size.height / 3) - canvas_data.lines.sizes.height * 2 || i > (canvas_data.size.height / 3 * 2) + canvas_data.lines.sizes.height * 2 ){
 
                 context.fillRect(canvas_data.size.width / 2 - canvas_data.lines.sizes.width / 2, i, canvas_data.lines.sizes.width, canvas_data.lines.sizes.height);
 
-            }
+            //}
 
             i += canvas_data.lines.sizes.height;
 
         }
 
         context.lineWidth = canvas_data.circles.width;
-        context.strokeStyle = canvas_data.circles.color1;
+        context.strokeStyle = player_data.color;
 
-        context.beginPath();
+        /*context.beginPath();
         context.arc(canvas_data.circles.x1, canvas_data.circles.y, canvas_data.circles.radius, 0, canvas_data.circles.arc1);
-        context.stroke();
+        context.stroke();*/
 
         context.beginPath();
-        context.arc(canvas_data.circles.x1, canvas_data.circles.y, canvas_data.circles.radius / 4, 0, canvas_data.circles.arc1);
+        context.arc(canvas_data.circles.x1, canvas_data.circles.y, canvas_data.circles.radius, -Math.PI / 2, Math.PI / 2);
         context.stroke();
 
-        context.strokeStyle = canvas_data.circles.color2;
-
+        context.strokeStyle = enemy_data.color;
         context.beginPath();
+        context.arc(canvas_data.circles.x1, canvas_data.circles.y, canvas_data.circles.radius, Math.PI / 2, -Math.PI / 2);
+        context.stroke();
+
+        /*context.beginPath();
         context.arc(canvas_data.circles.x2, canvas_data.circles.y, canvas_data.circles.radius * 1.5, -Math.PI / 2, canvas_data.circles.arc2);
         context.stroke();
 
@@ -167,7 +168,8 @@ document.addEventListener("DOMContentLoaded", function(){
         context.beginPath();
         context.arc(canvas_data.circles.x3, canvas_data.circles.y, canvas_data.circles.radius * 0.5, Math.PI, canvas_data.circles.arc2);
         context.stroke();
-
+ */
+        
     }
 
     function DrawPaddle(x, y, color){
@@ -202,6 +204,7 @@ document.addEventListener("DOMContentLoaded", function(){
             if(ball_data.position.y > player_data.position.y && ball_data.position.y - ball_data.size < player_data.position.y + paddle_data.height){
 
                 ball_data.speed.x *= -1.15;
+                ball_data.color = player_data.color;
 
             }else{
 
@@ -216,6 +219,7 @@ document.addEventListener("DOMContentLoaded", function(){
             if(ball_data.position.y > enemy_data.position.y && ball_data.position.y - ball_data.size < enemy_data.position.y + paddle_data.height){
 
                 ball_data.speed.x *= -1.15;
+                ball_data.color = enemy_data.color;
 
             }else{
 
@@ -339,6 +343,7 @@ document.addEventListener("DOMContentLoaded", function(){
             context.fillText(enemy_data.points + " : " + player_data.points, canvas_data.size.width / 2, canvas_data.size.height / 2);
 
             Reset();
+            ball_data.speed = {x: -12, y: -4};
 
         }
 
@@ -378,6 +383,7 @@ document.addEventListener("DOMContentLoaded", function(){
             context.fillText(enemy_data.points + " : " + player_data.points, canvas_data.size.width / 2, canvas_data.size.height / 2);
 
             Reset();
+            ball_data.speed = {x: 12, y: 4};
 
         }
 
@@ -391,7 +397,7 @@ document.addEventListener("DOMContentLoaded", function(){
             player_data.position.y = enemy_data.position.y = canvas_data.size.height / 2 - paddle_data.height / 2;
 
             ball_data.position = {x: canvas_data.size.width / 2 - screen.width / 80, y: canvas_data.size.height / 2 - screen.width / 80};
-            ball_data.speed = {x: -3, y: -2};
+            ball_data.color = "#999";
 
         }, 1500);
 

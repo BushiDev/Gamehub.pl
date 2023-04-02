@@ -5,7 +5,9 @@
     require_once("db_data.php");
     $connection = new mysqli($db_host, $db_user, $db_password, $db_name);
 
-    if(!isset($_GET['option']) || $_GET['option'] == ""){
+    if(!isset($_GET['option']) || $_GET['option'] != ""){
+
+        $sql = "";
 
         switch($_GET['option']){
 

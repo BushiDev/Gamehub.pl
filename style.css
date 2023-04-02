@@ -719,7 +719,7 @@
         main.account > article.scoreboards > div#pong_scores{
 
             width: 72vw;
-            height: 21vh;
+            height: 17vh;
 
             margin-left: auto;
             margin-right: auto;
@@ -748,7 +748,7 @@
             display: inline-block;
 
             width: 24vw;
-            height: 14vh;
+            height: 10vh;
 
             color: var(--text);
 
@@ -757,7 +757,7 @@
 
             box-sizing: border-box;
 
-            padding-top: 3vh;
+            padding-top: 2vh;
 
             border-left: 0.5vw solid var(--main-color);
             border-right: 0.5vw solid var(--main-color);
