@@ -1,0 +1,22 @@
+<FilesMatch "\.(htaccess|htpasswd|ini|fla|psd|log|sq)$">
+Order Allow,Deny
+Deny from all
+</FilesMatch>
+
+DirectoryIndex index.php
+
+RewriteEngine on
+RewriteRule konto account.php
+RewriteRule gry index.php
+RewriteRule osiagniecia achievements.php
+RewriteRule ustawienia settings.php
+RewriteRule rankingi leaderboards.php
+RewriteRule logowanie login.php
+RewriteRule rejestracja register.php
+RewriteRule przypomnij-haslo password.php
+
+ErrorDocument 403 http://localhost/Gamehub.pl/error.php?code=403
+ErrorDocument 404 http://localhost/Gamehub.pl/error.php?code=404
+ErrorDocument 500 http://localhost/Gamehub.pl/error.php?code=500
+
+Options -Indexes 

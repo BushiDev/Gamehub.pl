@@ -1,0 +1,64 @@
+{
+
+    "name": "Gamehub.pl",
+    "short_name": "Gamehub",
+    "start_url": "http://192.168.40.48/gamehub.pl",
+    "display": "standalone",
+    "lang": "pl-PL",
+    "orientation": "portrait-primary",
+    "background_color": "#272727",
+    "icons": [{
+
+        "src": "img/logo.png",
+        "sizes": "512x512",
+        "type": "image/png"
+
+    }],
+
+    "shortcuts": [
+        
+        {
+
+            "name": "Pong",
+            "url": "/pong.php",
+            "icons": [{
+
+                "src": "img/logo.png",
+                "sizes": "512x512",
+                "type": "image/png"
+        
+            }]
+
+        },
+
+        {
+
+            "name": "Logowanie",
+            "url": "/login.php",
+            "icons": [{
+
+                "src": "img/logo.png",
+                "sizes": "512x512",
+                "type": "image/png"
+        
+            }]
+
+        },
+
+        {
+
+            "name": "Rejestracja",
+            "url": "/register.php",
+            "icons": [{
+
+                "src": "img/logo.png",
+                "sizes": "512x512",
+                "type": "image/png"
+        
+            }]
+
+        }
+
+    ]
+
+}
