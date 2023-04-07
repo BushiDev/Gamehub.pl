@@ -3,11 +3,11 @@ Order Allow,Deny
 Deny from all
 </FilesMatch>
 
-DirectoryIndex index.php
+DirectoryIndex todo.html
 
 RewriteEngine on
-RewriteRule konto account.php
 RewriteRule gry index.php
+RewriteRule konto account.php
 RewriteRule osiagniecia achievements.php
 RewriteRule ustawienia settings.php
 RewriteRule rankingi leaderboards.php
@@ -15,6 +15,8 @@ RewriteRule logowanie login.php
 RewriteRule rejestracja register.php
 RewriteRule przypomnij-haslo password.php
 RewriteRule wyloguj logout_script.php
+RewriteRule pong pong.php
+RewriteRule snake snake.php
 
 ErrorDocument 403 http://localhost/Gamehub.pl/error.php?code=403
 ErrorDocument 404 http://localhost/Gamehub.pl/error.php?code=404

@@ -114,6 +114,8 @@
 
                         $sql = 'INSERT INTO pong_scoreboard("player_id") VALUES ("'.$row['id'].'")';
                         $connection->query($sql);
+                        $sql = 'INSERT INTO snake_scoreboard("player_id") VALUES ("'.$row['id'].'")';
+                        $connection->query($sql);
 
                         $subject = "Gamehub - Rejestracja";
                         $message = "Dziękujemy za rejestrację w naszym serwisie. Prosimy o potwierdzenie adresu e-mail, poprzez kliknięcię poniższego linku. Życzczymy miłego spędzania czasu, na naszej stronie <br>";

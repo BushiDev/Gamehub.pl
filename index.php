@@ -20,9 +20,9 @@
 
     <script src="https://kit.fontawesome.com/736d7541bb.js" crossorigin="anonymous"></script>
 
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="style.css?v=14">
     <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
-    <link rel="manifest" href="manifest.json?v=1">
+    <link rel="manifest" href="manifest.json">
 
 </head>
 <body>
@@ -61,6 +61,51 @@
         };
 
     </script>
+
+    <main>
+
+        <!--<article class="game">
+
+            <img src="images/games/Pong.png" alt="Pong">
+            <span>
+
+                Pong
+
+                <a href="pong">Graj</a>
+
+            </span>
+
+        </article>
+
+        <article class="game">
+
+            <img src="images/games/TicTacToe.png" alt="Tic Tac Toe">
+            <span>
+
+                Tic Tac Toe
+
+                <a href="tic-tac-toe">Graj</a>
+
+            </span>
+
+        </article>-->
+
+        <article class="game">
+
+            <img src="images/games/Snake.png" alt="Snake">
+            <span>
+
+                Snake
+
+                <a href="snake">Graj</a>
+
+            </span>
+
+        </article>
+
+        <h1 class="game_ads">Więcej gier wkrótce!</h1>
+
+    </main>
     
 </body>
 </html>

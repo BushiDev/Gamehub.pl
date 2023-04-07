@@ -1,3 +1,4 @@
 pong: rozegrane, wygrane, przegrane
 snake: ilosć gier, max punktów
 breakout: ilosc gier, max puntków
+ox: ilosc gier, wygrane, przegrane, remis

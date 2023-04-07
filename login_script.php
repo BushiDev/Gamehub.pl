@@ -4,7 +4,7 @@
 
     if(!isset($_POST['submit'])){
 
-        header("Location: register.php");
+        header("Location: logowanie");
 
     }
 
@@ -63,7 +63,7 @@
                             if($row['e-mail_confirmed'] == 1){
 
                                 $_SESSION['user_data'] = $row;
-                                header("Location: index.php");
+                                header("Location: gry");
     
                             }else{
     
@@ -71,14 +71,14 @@
     
                                 $_SESSION['e_e-mail'] = "Adres e-mail przypisany do tego konta, nie został jeszcze potwierdzony. Prosimy potwierdzić adres e-mail";
     
-                                header("Location: login.php");
+                                header("Location: logowanie");
     
                             }
 
                         }else{
 
                             $_SESSION['e_password'] = "Niepoprawne hasło";
-                            header("Location: login.php");
+                            header("Location: logowanie");
 
                         }
 
@@ -87,14 +87,14 @@
                 }else{
 
                     $_SESSION['e_e-mail'] = "Konto o takim adresie e-mail nie istnieje";
-                    header("Location: login.php");
+                    header("Location: logowanie");
 
                 }
 
             }else{
 
                 $_SESSION['e_e-mail'] = "Konto o takim adresie e-mail nie istnieje";
-                header("Location: login.php");
+                header("Location: logowanie");
 
             }
 
@@ -102,7 +102,7 @@
 
     }else{
 
-        header("Location: login.php");
+        header("Location: logowanie");
 
     }
 

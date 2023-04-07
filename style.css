@@ -5,10 +5,21 @@
 
     }
 
+    canvas{
+
+        position: absolute;
+        top: 50%;
+        left: 50%;
+
+        transform: translateX(-50%) translateY(-50%);
+
+    }
+
     :root{
 
         --main-color: #272727;
         --main-shade: #1c1c1c;
+        --main-transparent: #1c1c1cee;
 
         /*#ffa31a*/
 
@@ -154,6 +165,32 @@
 
         }
         
+        button.start_game_button{
+
+            display: block;
+
+            position: relative;
+            z-index: 5;
+
+            width: 30vh;
+            height: 30vh;
+
+            background-color: var(--main-color);
+            border: 2vh solid var(--secondary-color);
+            border-radius: 50%;
+            color: var(--secondary-color);
+
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 35vh;
+            margin-bottom: 35vh;
+
+            box-sizing: border-box;
+            
+            font-size: 15rem;
+            padding-left: 2.5rem;
+
+        }
 
         header{
 
@@ -474,6 +511,98 @@
 
         }
 
+        main > article.game{
+
+            width: 90vw;
+            height: 50vw;
+
+            margin-left: auto;
+            margin-right: auto;
+
+            margin-top: 5vh;
+
+            position: relative;
+
+            box-sizing: border-box;
+
+            border: 1vw solid var(--main-shade);
+
+        }
+
+        main > article.game:first-of-type{
+
+            margin-top: 20vh;
+
+        }
+
+        main > h1.game_ads{
+
+            text-align: center;
+            color: var(--text);
+
+            margin-top: 6vh;
+            margin-bottom: 20vh;
+
+            font-size: 4rem;
+
+        }
+
+        main > article.game > img{
+
+            width: 100%;
+            height: 100%;
+
+            position: absolute;
+            top: 0;
+            left: 0;
+
+        }
+
+        main > article.game > span{
+
+            display: inline-block;
+
+            width: 100%;
+            height: 10vw;
+            background-color: var(--main-transparent);
+
+            position: absolute;
+            bottom: 0;
+            left: 0;
+
+            line-height: 10vw;
+
+            box-sizing: border-box;
+
+            padding-left: 5vw;
+
+            font-size: 3rem;
+            font-weight: bold;
+            color: var(--text);
+
+        }
+
+        main > article.game > span > a{
+
+            position: absolute;
+            right: 5vw;
+            
+            text-decoration: none;
+            color: var(--secondary-color);
+
+            font-size: 4.5rem;
+            font-weight: bold;
+
+            transition: var(--transition);
+
+        }
+
+        main > article.game > span > a:hover{
+
+            opacity: 0.2;
+
+        }
+
         main.after_register{
 
             width: 100vw;
@@ -613,6 +742,9 @@
             position: relative;
             top: 5vh;
 
+            display: inline-block;
+            max-width: 85+vw;
+
         }
 
         main.account > article.achievements > div.achievement{
@@ -716,7 +848,7 @@
 
         }
 
-        main.account > article.scoreboards > div#pong_scores{
+        main.account > article.scoreboards > div{
 
             width: 72vw;
             height: 17vh;
@@ -725,8 +857,16 @@
             margin-right: auto;
 
             background-color: var(--main-shade);
+            margin-bottom: 5vh;
 
         }
+
+        main.account > article.scoreboards > div:last-of-type{
+
+            margin-bottom: 15vh;
+
+        }
+
 
         main.account > article.scoreboards > div#pong_scores > span:first-of-type{
 
@@ -771,6 +911,54 @@
         }
 
         main.account > article.scoreboards > div#pong_scores > span.pong_score:last-of-type{
+
+            border-right: none;
+
+        }
+
+        main.account > article.scoreboards > div#snake_scores > span:first-of-type{
+
+            display: inline-block;
+            width: 72vw;
+            height: 7vh;
+            background-color: var(--secondary-color);
+
+            line-height: 7vh;
+
+            color: var(--main-color);
+            font-size: 3rem;
+            font-weight: bold;
+
+        }
+
+        main.account > article.scoreboards > div#snake_scores > span.snake_score{
+
+            display: inline-block;
+
+            width: 36vw;
+            height: 10vh;
+
+            color: var(--text);
+
+            font-size: 2rem;
+            font-weight: bold;
+
+            box-sizing: border-box;
+
+            padding-top: 2vh;
+
+            border-left: 0.5vw solid var(--main-color);
+            border-right: 0.5vw solid var(--main-color);
+
+        }
+
+        main.account > article.scoreboards > div#snake_scores > span.snake_score:first-of-type{
+
+            border-left: none;
+
+        }
+
+        main.account > article.scoreboards > div#snake_scores > span.snake_score:last-of-type{
 
             border-right: none;
 
@@ -884,6 +1072,7 @@
             height: 20vh;
 
         }
+
 
     }
 

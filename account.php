@@ -191,12 +191,33 @@
                         echo "<span class='pong_score'>Przegrane<br><br> ".$result['loose_count']."</span>";
 
                     }
+                    
+                ?>
+
+            </div>  
+
+            <div id="snake_scores">
+
+                <span>Snake</span>
+                    
+                <?php
+
+                    $sql = 'SELECT * FROM snake_scoreboard WHERE player_id = '.$_SESSION['user_data']['id'];
+
+                    if($result = $connection->query($sql)){
+
+                        $result = $result->fetch_assoc();
+
+                        echo "<span class='snake_score'>Rozegrane gry<br><br> ".$result['games_played']."</span>";
+                        echo "<span class='snake_score'>Najwyższy wynik<br><br> ".$result['max_score']."</span>";
+
+                    }
 
                     $connection->close();
                     
                 ?>
 
-            </div>            
+            </div>           
 
         </article>
 

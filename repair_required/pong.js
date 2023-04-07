@@ -82,7 +82,7 @@ document.addEventListener("DOMContentLoaded", function(){
 
         },
 
-        color: "#f0f",
+        color: "#80e872",
 
         speed: {
 
@@ -111,7 +111,14 @@ document.addEventListener("DOMContentLoaded", function(){
         speed: {
 
             x: 12,
-            y: 4
+            y: 8
+
+        },
+
+        max_speed: {
+
+            x: 35,
+            y: 20
 
         }
 
@@ -184,7 +191,7 @@ document.addEventListener("DOMContentLoaded", function(){
         context.fillStyle = ball_data.color;
 
         context.beginPath();
-        context.arc(ball_data.position.x, ball_data.position.y, ball_data.size / 2, 0, 2 * Math.PI);
+        context.arc(ball_data.position.x + 23, ball_data.position.y+2, ball_data.size / 2, 0, 2 * Math.PI);
         context.fill();
     }
 
@@ -195,7 +202,14 @@ document.addEventListener("DOMContentLoaded", function(){
 
         if(ball_data.position.y - ball_data.size / 2 < 0 || ball_data.position.y > canvas_data.size.height - ball_data.size / 2){
 
-            ball_data.speed.y *= -1.05;
+            ball_data.speed.y *= -1.1;
+
+            ball_data.max_speed.y *= -1;
+                if(Math.abs(ball_data.speed.y) > Math.abs(ball_data.max_speed.y)){
+
+                    ball_data.speed.y = ball_data.max_speed.y;
+
+                }
 
         }
 
@@ -204,6 +218,13 @@ document.addEventListener("DOMContentLoaded", function(){
             if(ball_data.position.y > player_data.position.y && ball_data.position.y - ball_data.size < player_data.position.y + paddle_data.height){
 
                 ball_data.speed.x *= -1.15;
+                ball_data.max_speed.x *= -1;
+                if(Math.abs(ball_data.speed.x) > Math.abs(ball_data.max_speed.x)){
+
+                    ball_data.speed.x = ball_data.max_speed.x;
+
+                }
+
                 ball_data.color = player_data.color;
 
             }else{
@@ -219,6 +240,14 @@ document.addEventListener("DOMContentLoaded", function(){
             if(ball_data.position.y > enemy_data.position.y && ball_data.position.y - ball_data.size < enemy_data.position.y + paddle_data.height){
 
                 ball_data.speed.x *= -1.15;
+
+                ball_data.max_speed.x *= -1;
+                if(Math.abs(ball_data.speed.x) > Math.abs(ball_data.max_speed.x)){
+
+                    ball_data.speed.x = ball_data.max_speed.x;
+
+                }
+
                 ball_data.color = enemy_data.color;
 
             }else{
@@ -277,11 +306,11 @@ document.addEventListener("DOMContentLoaded", function(){
 
     }
 
-    setInterval(Game, 1000/60);
+    setInterval(Game, 1000 / 60);
 
     function PlayerMovement(e){
 
-        var y = e.clientY - canvas.offsetTop;
+        var y = e.clientY;
         
         y = (y < 0) ? 0 : (y + paddle_data.height > canvas_data.size.height) ? canvas_data.size.height - paddle_data.height : y;
 
@@ -333,7 +362,7 @@ document.addEventListener("DOMContentLoaded", function(){
             context.fillText("You win!", canvas_data.size.width / 2, canvas_data.size.height / 2);
 
             var xmlhttp = new XMLHttpRequest();
-            xmlhttp.open("GET", "pong_score.php?option=win");
+            xmlhttp.open("GET", "score.php?g=pong&option=win");
             xmlhttp.send();
 
             setTimeout(rotate("portrait"), 2000);
@@ -344,6 +373,7 @@ document.addEventListener("DOMContentLoaded", function(){
 
             Reset();
             ball_data.speed = {x: -12, y: -4};
+            ball_data.max_speed = {x: -35, y: -20};
 
         }
 
@@ -373,7 +403,7 @@ document.addEventListener("DOMContentLoaded", function(){
             context.fillText("You loose!", canvas_data.size.width / 2, canvas_data.size.height / 2);
 
             var xmlhttp = new XMLHttpRequest();
-            xmlhttp.open("GET", "pong_score.php?option=loose");
+            xmlhttp.open("GET", "score.php?g=pong&option=loose");
             xmlhttp.send();
 
             setTimeout(rotate("portrait"), 2000);
@@ -384,6 +414,7 @@ document.addEventListener("DOMContentLoaded", function(){
 
             Reset();
             ball_data.speed = {x: 12, y: 4};
+            ball_data.max_speed = {x: 35, y: 15};
 
         }
 
@@ -408,6 +439,21 @@ document.addEventListener("DOMContentLoaded", function(){
         document.querySelector("button").style.setProperty("display", "none");
 
         rotate("landscape");
+
+        var xmlhttp = new XMLHttpRequest();
+
+        xmlhttp.onreadystatechange = function(){
+
+            if(xmlhttp.readyState == 4 && xmlhttp.status == 200){
+
+                player_data.color = xmlhttp.responseText;
+
+            }
+
+        };
+
+        xmlhttp.open("GET", "user_data.php?p=color&o=get");
+        xmlhttp.send();
 
         setTimeout(function(){
 

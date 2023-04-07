@@ -34,6 +34,11 @@
 
                 break;
 
+            case "get":
+
+                echo $_SESSION['user_data']['color'];
+                break;
+
         }
 
     }
