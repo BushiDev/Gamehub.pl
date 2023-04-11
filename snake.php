@@ -42,7 +42,6 @@ document.addEventListener("DOMContentLoaded", function(){
 
     function setup_canvas(){
 
-
         if(window.innerWidth > window.innerHeight){
 
             canvas_data.size = window.innerHeight;
@@ -130,6 +129,23 @@ document.addEventListener("DOMContentLoaded", function(){
 
     };
 
+    var golden_apple = {
+
+        minimum_score: 1,
+        chance: 5, // in %
+        score_reward: 5,
+        is_on_board: false,
+        position: {
+
+            x: 0,
+            y: 0
+
+        },
+
+        color: "#ca0"
+
+    };
+
     function setup_apple(){
 
         apple.position = {
@@ -138,6 +154,26 @@ document.addEventListener("DOMContentLoaded", function(){
             y: Math.floor(Math.random() * tile_data.count) * tile_data.size
 
         };
+
+    }
+
+    function setup_golden_apple(){
+
+        if(golden_apple.is_on_board || snake.tail.length < golden_apple.minimum_score) return;
+
+        lucky = Math.random() * 100;
+        if(lucky <= golden_apple.chance){
+
+            golden_apple.is_on_board = true;
+
+            golden_apple.position = {
+
+                x: Math.floor(Math.random() * tile_data.count) * tile_data.size,
+                y: Math.floor(Math.random() * tile_data.count) * tile_data.size
+        
+            };
+
+        }
 
     }
 
@@ -201,6 +237,7 @@ document.addEventListener("DOMContentLoaded", function(){
             setup_apple();
             snake.tail.push({x: snake.position.x, y: snake.position.y});
             game_speed += 0.3;
+            setup_golden_apple();
 
         }
 
@@ -526,6 +563,33 @@ document.addEventListener("DOMContentLoaded", function(){
 
     }
 
+    function draw_golden_apple(){
+
+        if(golden_apple.is_on_board){
+
+            ctx.fillStyle = golden_apple.color;
+            ctx.fillRect(golden_apple.position.x, golden_apple.position.y, tile_data.size, tile_data.size);
+
+        }
+
+    }
+
+    function check_golden_apple_collision(){
+
+        if(Math.abs(golden_apple.position.x - snake.position.x) < 0.1 && Math.abs(golden_apple.position.y - snake.position.y) < 0.1){
+
+            golden_apple.is_on_board = false;
+            for(var i = 0; i < golden_apple.score_reward; i++){
+
+                snake.tail.push({x: snake.position.x, y: snake.position.y});
+                game_speed += 0.3;
+
+            }
+            
+        }
+
+    }
+
     canvas.addEventListener("click", handle_pause_button_click);
     canvas.addEventListener("touchstart", function(e){
 
@@ -591,6 +655,7 @@ document.addEventListener("DOMContentLoaded", function(){
         draw_canvas();
         draw_snake();
         draw_apple();
+        draw_golden_apple();
 
         draw_pause_button();
 
@@ -601,6 +666,7 @@ document.addEventListener("DOMContentLoaded", function(){
         check_game_border();
         check_tail_collision();
         check_apple_collision();
+        check_golden_apple_collision();
 
         clearTimeout(t);
         t = setTimeout(game_loop, 1000 / game_speed);
@@ -611,20 +677,35 @@ document.addEventListener("DOMContentLoaded", function(){
 
         document.querySelector("button").style.setProperty("display", "none");
 
-        var xmlhttp = new XMLHttpRequest();
+        var xmlhttp_main = new XMLHttpRequest();
 
-        xmlhttp.onreadystatechange = function(){
+        xmlhttp_main.onreadystatechange = function(){
 
-            if(xmlhttp.readyState == 4 && xmlhttp.status == 200){
+            if(xmlhttp_main.readyState == 4 && xmlhttp_main.status == 200){
 
-                snake.colors.head = xmlhttp.responseText;
+                snake.colors.head = xmlhttp_main.responseText;
 
             }
 
         };
 
-        xmlhttp.open("GET", "user_data.php?p=color&o=get");
-        xmlhttp.send();
+        xmlhttp_main.open("GET", "user_data.php?p=color&o=get");
+        xmlhttp_main.send();
+
+        var xmlhttp_alternative = new XMLHttpRequest();
+
+        xmlhttp_alternative.onreadystatechange = function(){
+
+            if(xmlhttp_alternative.readyState == 4 && xmlhttp_alternative.status == 200){
+
+                snake.colors.parts = xmlhttp_alternative.responseText;
+
+            }
+
+        };
+
+        xmlhttp_alternative.open("GET", "user_data.php?p=alternative_color&o=get");
+        xmlhttp_alternative.send();
 
         game_speed = 7;
         snake.is_alive = true;

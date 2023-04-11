@@ -720,11 +720,12 @@
 
         main.account > article.achievements{
 
-            width: 100vw;
+            width: 95vw;
             height: 25vw;
 
             position: absolute;
             top: 27vh;
+            left: 2.5vw;
 
         }
 
@@ -743,18 +744,18 @@
             top: 5vh;
 
             display: inline-block;
-            max-width: 85+vw;
+            max-width: 75vw;
 
         }
 
         main.account > article.achievements > div.achievement{
 
             position: relative;
-            top: 3vh;
+            top: 5vh;
             z-index: 2;
 
-            width: 25vw;
-            height: 25vw;
+            width: 23.75vw;
+            height: 23.75vw;
             float: left;
 
         }
@@ -782,9 +783,10 @@
         main.account > article.achievements > div.achievement > i{
 
             display: inline-block;
-            line-height: 25vw;
+            line-height: 23.75vw;
             color: var(--text);
             font-size: 15rem;
+            background-color: var(--main-color);
 
         }
 
@@ -833,7 +835,7 @@
         main.account > article.scoreboards{
 
             position: absolute;
-            top: 50vh;
+            top: 60vh;
             width: 100vw;
 
         }
@@ -857,7 +859,7 @@
             margin-right: auto;
 
             background-color: var(--main-shade);
-            margin-bottom: 5vh;
+            margin-bottom: 3vh;
 
         }
 

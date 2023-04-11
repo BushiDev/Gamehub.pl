@@ -1,9 +1,10 @@
 var change_name = function(){};
 var change_color = function(new_color){};
 var change_avatar = function(new_avatar){};
-var xmlhttp = new XMLHttpRequest();
 
 document.addEventListener("DOMContentLoaded", function(){
+
+    var xmlhttp = new XMLHttpRequest();
 
     var change = function(p, v){
 
@@ -29,10 +30,18 @@ document.addEventListener("DOMContentLoaded", function(){
         
     };
 
-    change_color = function(new_color){
+    change_color = function(new_color, main = true){
 
-        document.querySelector("html").style.setProperty("--secondary-color", "#"+new_color);
-        change("color", new_color);
+        if(main){
+
+            document.querySelector("html").style.setProperty("--secondary-color", "#"+new_color);
+            change("color", new_color);
+
+        }else{
+
+            change("alternative_color", new_color);
+
+        }
 
     }
 

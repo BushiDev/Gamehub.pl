@@ -13,7 +13,7 @@
 
                 if($connection->connect_errno == 0){
 
-                    if($_GET['p'] == "color"){
+                    if($_GET['p'] == "color" || $_GET['p'] == "alternative_color"){
 
                         $sql = 'UPDATE users SET '.$_GET['p'].' = "#'.$_GET['v'].'" WHERE `id` = '.$_SESSION['user_data']['id'];
                         $_SESSION['user_data'][$_GET['p']] = "#".$_GET['v'];
@@ -36,7 +36,7 @@
 
             case "get":
 
-                echo $_SESSION['user_data']['color'];
+                echo $_SESSION['user_data'][$_GET['p']];
                 break;
 
         }

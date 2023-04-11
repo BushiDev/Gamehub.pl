@@ -19,7 +19,7 @@
     <title>Gamehub - Ustawienia konta</title>
 
     <script src="https://kit.fontawesome.com/736d7541bb.js" crossorigin="anonymous"></script>
-    <script src="settings.js" crossorigin="anonymous"></script>
+    <script src="settings.js?v=1" crossorigin="anonymous"></script>
 
     <link rel="stylesheet" type="text/css" href="style.css">
     <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
@@ -105,6 +105,21 @@
         <button class="color_changer" style="--color: #00f" onclick="change_color('00f')"></button>
         <button class="color_changer" style="--color: #80f" onclick="change_color('80f')"></button>
         <button class="color_changer" style="--color: #f0f" onclick="change_color('f0f')"></button>
+
+        <br><br><br>
+
+        Alternatywny kolor w grach<br>
+        <button class="color_changer" style="--color: #f00" onclick="change_color('f00', false)"></button>
+        <button class="color_changer" style="--color: #ffa31a" onclick="change_color('ffa31a', false)"></button>
+        <button class="color_changer" style="--color: #ff0" onclick="change_color('ff0', false)"></button><br>
+
+        <button class="color_changer" style="--color: #0f0" onclick="change_color('0f0', false)"></button>
+        <button class="color_changer" style="--color: #0ff" onclick="change_color('0ff', false)"></button>
+        <button class="color_changer" style="--color: #08f" onclick="change_color('08f', false)"></button><br>
+
+        <button class="color_changer" style="--color: #00f" onclick="change_color('00f', false)"></button>
+        <button class="color_changer" style="--color: #80f" onclick="change_color('80f', false)"></button>
+        <button class="color_changer" style="--color: #f0f" onclick="change_color('f0f', false)"></button>
 
         <div class="addon"></div>
 
