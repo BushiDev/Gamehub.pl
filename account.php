@@ -9,35 +9,6 @@
     }
 
     require_once("db_data.php");
-    $connection = new mysqli($db_host, $db_user, $db_password, $db_name);
-    if($connection->connect_errno == 0){
-
-        $sql = 'SELECT * FROM collected_achievements WHERE `user_id` = '.$_SESSION['user_data']['id'].' AND `achievement_id` = 1';
-
-        if($result = $connection->query($sql)){
-
-            if($result->num_rows == 0){
-
-                $d1 = strtotime(date("Y-m-d"));
-                $d2 = strtotime($_SESSION['user_data']['register_date']);
-
-                $diff = abs($d1 - $d2);
-                $years = floor($diff / (365*60*60*24));
-                $months = floor(($diff - $years * 365*60*60*24) / (30*60*60*24));
-                $days = floor(($diff - $years * 365*60*60*24 - $months*30*60*60*24)/ (60*60*24));
-
-                if($years > 0){
-
-                    $sql = 'INSERT INTO collected_achievements(`user_id`, `achievement_id`) VALUES ('.$_SESSION['user_data']['id'].', 1)';
-                    $connection->query($sql);
-
-                }
-
-            }
-
-        }
-
-    }
 
 ?>
 
@@ -51,7 +22,7 @@
 
     <script src="https://kit.fontawesome.com/736d7541bb.js" crossorigin="anonymous"></script>
 
-    <link rel="stylesheet" type="text/css" href="style.css?v=1">
+    <link rel="stylesheet" type="text/css" href="style.css?v=2">
     <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
     <link rel="manifest" href="manifest.json">
 
@@ -210,6 +181,29 @@
 
                         echo "<span class='snake_score'>Rozegrane gry<br><br> ".$result['games_played']."</span>";
                         echo "<span class='snake_score'>Najwyższy wynik<br><br> ".$result['max_score']."</span>";
+
+                    }
+                    
+                ?>
+
+            </div> 
+
+            <div id="tic_tac_toe_scores">
+
+                <span>Tic Tac Toe</span>
+                    
+                <?php
+
+                    $sql = 'SELECT * FROM tic_tac_toe_scoreboard WHERE player_id = '.$_SESSION['user_data']['id'];
+
+                    if($result = $connection->query($sql)){
+
+                        $result = $result->fetch_assoc();
+
+                        echo "<span class='tic_tac_toe_score'>Rozegrane gry<br><br> ".(intval($result['win_count']) + intval($result['loose_count']) + intval($result['tie_count']))."</span>";
+                        echo "<span class='tic_tac_toe_score'>Wygrane<br><br> ".$result['win_count']."</span>";
+                        echo "<span class='tic_tac_toe_score'>Przegrane<br><br> ".$result['loose_count']."</span>";
+                        echo "<span class='tic_tac_toe_score'>Remisy<br><br> ".$result['tie_count']."</span>";
 
                     }
 

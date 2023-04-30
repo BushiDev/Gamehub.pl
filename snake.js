@@ -105,7 +105,7 @@ document.addEventListener("DOMContentLoaded", function(){
 
     var golden_apple = {
 
-        minimum_score: 1,
+        minimum_score: 15,
         chance: 5, // in %
         score_reward: 5,
         is_on_board: false,
@@ -559,7 +559,7 @@ document.addEventListener("DOMContentLoaded", function(){
                 game_speed += 0.3;
 
             }
-
+            
         }
 
     }

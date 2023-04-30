@@ -106,8 +106,6 @@
 
                 if($result = $connection->query($sql)){
 
-                    //echo "okk \n";
-
                     if($row = $result->fetch_assoc()){
 
                         echo "okk1 \n";
@@ -115,23 +113,19 @@
                         $sql = 'UPDATE users SET show_name = "player_'.$row['id'].'" WHERE id = '.$row['id'];
                         $connection->query($sql);
 
-                        //echo "nick ustawiony \n";
-
                         $sql = 'INSERT INTO pong_scoreboard(player_id) VALUES ("'.$row['id'].'")';
                         $connection->query($sql);
-                        //echo "pong \n";
                         $sql = 'INSERT INTO snake_scoreboard(player_id) VALUES ("'.$row['id'].'")';
                         $connection->query($sql);
-                        //echo "snake \n";
+                        $sql = 'INSERT INTO tic_tac_toe_scoreboard(player_id) VALUES ("'.$row['id'].'")';
+                        $connection->query($sql);
 
                         $subject = "Gamehub - Rejestracja";
                         $message = "Dziękujemy za rejestrację w naszym serwisie. Prosimy o potwierdzenie adresu e-mail, poprzez kliknięcię poniższego linku. Życzczymy miłego spędzania czasu, na naszej stronie <br>";
                         $link = "https://127.0.0.1/gamehub.pl/verify_email.php?id=".$row['id'];
                         $message .= "<a href='".$link."'>".$link."</a>";
 
-                        //echo "okk";
-
-                        //if(mail($_POST['e-mail'], $subject, $message)){
+                        if(mail($_POST['e-mail'], $subject, $message)){
 
                             if(isset($_GET['r']) && $_GET['r'] != ""){
             
@@ -143,11 +137,11 @@
                 
                             }
             
-                        /*}else{
+                        }else{
             
                             echo "Nieeeeeee";
             
-                        }*/
+                        }
 
                     }
 

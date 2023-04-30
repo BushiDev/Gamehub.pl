@@ -5,7 +5,7 @@
     require_once("db_data.php");
     $connection = new mysqli($db_host, $db_user, $db_password, $db_name);
 
-    if(isset($_GET['o']) && $_GET['o'] != "" && isset($_GET['p']) && $_GET['p'] != "" && isset($_GET['g']) && $_GET['g'] != ""){
+    if(isset($_GET['o']) && $_GET['o'] != "" && isset($_GET['g']) && $_GET['g'] != ""){
 
         $game = $_GET['g'];
 
@@ -32,23 +32,17 @@
                     break;
             }
 
+        }else if($game == "pong"){
+
+            $sql = 'UPDATE pong_scoreboard SET '.$_GET['o'].'_count = '.$_GET['o'].'count + 1 WHERE pong_scoreboard.player_id = '.$_SESSION['user_data']['id'];
+            $connection->query($sql);
+    
+        }else if($game == "tic_tac_toe"){
+    
+            $sql = 'UPDATE tic_tac_toe_scoreboard SET '.$_GET['o'].'_count = '.$_GET['o'].'_count + 1 WHERE tic_tac_toe_scoreboard.player_id = '.$_SESSION['user_data']['id'];
+            $connection->query($sql);
+    
         }
-
-    }else if($game == "pong"){
-
-        $sql = "";
-
-        switch($_GET['o']){
-
-            case "win":
-                $sql = "UPDATE pong_scoreboard SET win_count = win_count + 1 WHERE pong_scoreboard.player_id = ".$_SESSION['user_data']['id'];
-                break;
-            case "loose":
-                $sql = "UPDATE pong_scoreboard SET loose_count = loose_count + 1 WHERE pong_scoreboard.player_id = ".$_SESSION['user_data']['id'];
-                break;
-        }
-
-        $connection->query($sql);
 
     }
 

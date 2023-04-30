@@ -19,7 +19,8 @@
     <title>Gamehub - Ustawienia konta</title>
 
     <script src="https://kit.fontawesome.com/736d7541bb.js" crossorigin="anonymous"></script>
-    <script src="settings.js?v=1" crossorigin="anonymous"></script>
+    <script src="achievement_data.js"></script>
+    <script src="settings.js?v=12" crossorigin="anonymous"></script>
 
     <link rel="stylesheet" type="text/css" href="style.css">
     <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">

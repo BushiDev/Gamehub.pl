@@ -181,13 +181,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
             draw_enemy(game_array[randomBox].x, game_array[randomBox].y);
 
-            if (check_table_status() == 0) {
+            if(check_table_status() == 0){
 
                 turn = 1;
 
-            } else {
+            }else{
 
-                console.log(check_table_status())
+                console.log(check_table_status());
 
             }
 

@@ -1,0 +1,14 @@
+Konto:
+    -Mam na imię... - Zmień swój nick - bronze
+    -Ja tak nie wyglądam - Zmień swój awatar - bronze
+    -Uwielbiam ten kolor! - Zmień swój kolor główny w grach - bronze
+    -Ten kolor też lubię - Zmień swój kolor alternatywny w grach - bronze
+    -To już rok - Posiadaj konto rok lub dłużej - bronze
+
+Gry:
+    Snake: 
+        -Ale długi! - Zdobądź 30 punktów w grze Snake - bronze
+        -Jeszcze dłuższy! - Zdobądź 70 punktów w grze Snake - bronze
+    Pong:
+        -Wzloty i upadki - Wygraj i przegraj w grze Pong 10 razy - bronze
+        -Równi sobie - Zremisuj 10 razy w grze Pong - bronze

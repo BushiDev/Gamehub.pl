@@ -4,9 +4,9 @@ var change_avatar = function(new_avatar){};
 
 document.addEventListener("DOMContentLoaded", function(){
 
-    var xmlhttp = new XMLHttpRequest();
-
     var change = function(p, v){
+
+        var xmlhttp = new XMLHttpRequest();
 
         xmlhttp.onreadystatechange = function(){
 
@@ -27,6 +27,8 @@ document.addEventListener("DOMContentLoaded", function(){
 
         var new_name = document.querySelector("input#show_name").value;
         change("show_name", new_name);
+
+        check_achievement(1);
         
     };
 
@@ -36,10 +38,12 @@ document.addEventListener("DOMContentLoaded", function(){
 
             document.querySelector("html").style.setProperty("--secondary-color", "#"+new_color);
             change("color", new_color);
+            check_achievement(3);
 
         }else{
 
             change("alternative_color", new_color);
+            check_achievement(4);
 
         }
 
@@ -51,6 +55,7 @@ document.addEventListener("DOMContentLoaded", function(){
 
         main_image.src = "images/avatars/" + new_avatar + ".png";
         change("avatar", new_avatar);
+        check_achievement(2);
 
     };
 
