@@ -355,7 +355,7 @@ document.addEventListener("DOMContentLoaded", function(){
 
         }
 
-        /*ctx.font = "Lato 720px";
+        /*ctx.font = "Arial 720px";
         ctx.fillText("x: "+offset.x, 50, 100);
         ctx.fillText("Y: "+offset.y, 50, 200);*/
         
@@ -372,7 +372,7 @@ document.addEventListener("DOMContentLoaded", function(){
 
         var score_text = "Punkty: " + snake.tail.length;
 
-        ctx.font = canvas_data.size / 20 + "px Lato";
+        ctx.font = canvas_data.size / 20 + "px Arial";
         ctx.fillStyle = "#fff";
         ctx.textAlign = "left";
         ctx.fillText(score_text, 10, canvas_data.size / 20);
@@ -387,16 +387,16 @@ document.addEventListener("DOMContentLoaded", function(){
         ctx.fillRect(0, 0, canvas_data.size, canvas_data.size);
 
         ctx.fillStyle = "#c00";
-        ctx.font = canvas_data.size / 15 + "px Lato";
+        ctx.font = canvas_data.size / 15 + "px Arial";
         ctx.textAlign = "center";
         ctx.fillText("Przegrałeś/aś", canvas_data.size / 2, canvas_data.size / 6.5);
 
         ctx.fillStyle = "#fff";
-        ctx.font = canvas_data.size / 24 + "px Lato";
+        ctx.font = canvas_data.size / 24 + "px Arial";
         ctx.textAlign = "center";
         ctx.fillText(score_text, canvas_data.size / 2, canvas_data.size / 4.5);
 
-        ctx.font = canvas_data.size / 24 + "px Lato";
+        ctx.font = canvas_data.size / 24 + "px Arial";
         ctx.textAlign = "center";
         ctx.fillText("Chcesz zagrać ponownie?", canvas_data.size / 2, canvas_data.size / 2.75);
 
@@ -584,16 +584,16 @@ document.addEventListener("DOMContentLoaded", function(){
         ctx.fillRect(0, 0, canvas_data.size, canvas_data.size);
 
         ctx.fillStyle = snake.colors.head;
-        ctx.font = canvas_data.size / 15 + "px Lato";
+        ctx.font = canvas_data.size / 15 + "px Arial";
         ctx.textAlign = "center";
         ctx.fillText("Gra zatrzymana", canvas_data.size / 2, canvas_data.size / 5.5);
 
         ctx.fillStyle = "#fff";
-        ctx.font = canvas_data.size / 24 + "px Lato";
+        ctx.font = canvas_data.size / 24 + "px Arial";
         ctx.textAlign = "center";
         ctx.fillText(score_text, canvas_data.size / 2, canvas_data.size / 3.5);
 
-        ctx.font = canvas_data.size / 24 + "px Lato";
+        ctx.font = canvas_data.size / 24 + "px Arial";
         ctx.textAlign = "center";
         ctx.fillText("Wróć do gry", canvas_data.size / 2, canvas_data.size / 1.75);
 

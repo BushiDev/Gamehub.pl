@@ -16,7 +16,7 @@
     <title>Gamehub - Błąd 404</title>
 
     <script src="https://kit.fontawesome.com/736d7541bb.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" type="text/css" href="style.css?v=1">
+    <link rel="stylesheet" type="text/css" href="style.css?v=2">
     <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
     <link rel="manifest" href="manifest.json">
 

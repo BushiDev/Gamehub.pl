@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function(){
 
     };
 
-    var game_status = 0; //0 - waiting for player side, 1 - player move, 2 - enemy move, 3 - player win, 4 - enemy win, 5 - remis, 6 - wait for end decision
+    var game_status = 0; //0 - waiting for player side, 1 - player move, 2 - enemy move, 3 - player win, 4 - enemy win, 5 - tie, 6 - wait for end decision
     var player_symbol = "";
     var player_can_move = false;
 
@@ -272,7 +272,7 @@ document.addEventListener("DOMContentLoaded", function(){
 
             if(game_status == 3){
 
-                setInterval(Draw_End_Menu("Wygrałeś/aś!", colors.player), 1500);
+                setTimeout(Draw_End_Menu("Wygrałeś/aś!", colors.player), 1500);
                 console.log("Player win");
                 let xmlhttp = new XMLHttpRequest();
                 xmlhttp.open("GET", "score.php?g=tic_tac_toe&o=win");
@@ -280,7 +280,7 @@ document.addEventListener("DOMContentLoaded", function(){
 
             }else{
 
-                setInterval(Draw_End_Menu("Przegrałeś/aś!", colors.enemy), 1500);
+                setTimeout(Draw_End_Menu("Przegrałeś/aś!", colors.enemy), 1500);
                 console.log("Enemy Win");
                 let xmlhttp = new XMLHttpRequest();
                 xmlhttp.open("GET", "score.php?g=tic_tac_toe&o=loose");
@@ -308,7 +308,7 @@ document.addEventListener("DOMContentLoaded", function(){
 
             if(game_status == 5){
 
-                setInterval(Draw_End_Menu("Remis!", "#fff"), 1500);
+                setTimeout(Draw_End_Menu("Remis!", "#fff"), 1500);
                 console.log("tie");
 
                 let xmlhttp = new XMLHttpRequest();
@@ -322,7 +322,7 @@ document.addEventListener("DOMContentLoaded", function(){
 
                 if(!player_can_move){
 
-                    let randomDealy = (Math.floor(Math.random() * 2000) + 300);
+                    let randomDealy = (Math.floor(Math.random() * 1500) + 300);
                     setTimeout(Enemy_Move, randomDealy);
 
                 }
@@ -467,12 +467,12 @@ document.addEventListener("DOMContentLoaded", function(){
         context.fillRect(0, 0, canvas_data.size, canvas_data.size);
 
         context.fillStyle = colors.player;
-        context.font = canvas_data.size / 12 + "px Lato";
+        context.font = canvas_data.size / 12 + "px Arial";
         context.textAlign = "center";
         context.fillText("Wybierz swój symbol", canvas_data.size / 2, canvas_data.size / 4);
 
         context.fillStyle = canvas_data.lines.color;
-        context.font = canvas_data.size / 5 + "px Lato";
+        context.font = canvas_data.size / 5 + "px Arial";
         context.fillText("O", canvas_data.size / 3, canvas_data.size / 1.5);
         context.fillText("X", canvas_data.size / 3 * 2, canvas_data.size / 1.5);
 
@@ -484,12 +484,12 @@ document.addEventListener("DOMContentLoaded", function(){
         context.fillRect(0, 0, canvas_data.size, canvas_data.size);
 
         context.fillStyle = color;
-        context.font = canvas_data.size / 12 + "px Lato";
+        context.font = canvas_data.size / 12 + "px Arial";
         context.textAlign = "center";
         context.fillText(text, canvas_data.size / 2, canvas_data.size / 4);
 
         context.fillStyle = canvas_data.lines.color;
-        context.font = canvas_data.size / 25 + "px Lato";
+        context.font = canvas_data.size / 25 + "px Arial";
         context.fillText("Zagraj jeszcze raz", canvas_data.size / 2, canvas_data.size / 2);
         context.fillText("Wróć na stronę główną", canvas_data.size / 2, canvas_data.size / 1.75);
 

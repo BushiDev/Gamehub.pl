@@ -20,7 +20,7 @@
         {
 
             "name": "Pong",
-            "url": "/pong.php",
+            "url": "/pong",
             "icons": [{
 
                 "src": "img/logo.png",
@@ -34,7 +34,7 @@
         {
 
             "name": "Logowanie",
-            "url": "/login.php",
+            "url": "/logowanie",
             "icons": [{
 
                 "src": "img/logo.png",
@@ -48,7 +48,7 @@
         {
 
             "name": "Rejestracja",
-            "url": "/register.php",
+            "url": "/rejestracja",
             "icons": [{
 
                 "src": "img/logo.png",

@@ -1,7 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Bungee&display=swap');
+
 * {
 
     margin: 0;
     padding: 0;
+
+
 
 }
 
@@ -203,7 +207,7 @@ body {
         position: fixed;
         top: 0;
         left: 0;
-        z-index: 3;
+        z-index: 4;
 
     }
 
@@ -314,7 +318,7 @@ body {
         margin-top: 5rem;
         margin-bottom: 5rem;
         font-size: 5rem;
-        font-family: 'Arial';
+        font-family: 'Bungee', cursive;
 
     }
 
@@ -323,6 +327,7 @@ body {
 
         border: none;
         outline: none;
+        inset: none;
         border-bottom: 0.5rem solid var(--secondary-color);
         background-color: transparent;
         height: 6vh;
@@ -333,6 +338,8 @@ body {
 
         color: var(--text);
 
+        font-family: 'Bungee', cursive;
+
     }
 
     form.login > input[type="submit"],
@@ -340,7 +347,7 @@ body {
 
         outline: none;
 
-        font-family: 'Arial';
+        font-family: 'Bungee', cursive;
 
         width: 30vw;
         height: 6vh;
@@ -388,6 +395,8 @@ body {
         transition-duration: var(--transition);
 
         position: absolute;
+
+        font-family: 'Arial';
 
     }
 
@@ -478,17 +487,23 @@ body {
         margin-top: 15vh;
         font-size: 5rem;
 
+        font-family: 'Bungee', cursive;
+
     }
 
     div.error_textbox > h1 {
 
         font-size: 10rem;
 
+        font-family: 'Bungee', cursive;
+
     }
 
     div.error_textbox > h4 {
 
         font-size: 3rem;
+
+        font-family: "Arial";
 
     }
 
@@ -497,6 +512,8 @@ body {
         font-size: 2rem;
         position: relative;
         top: 5vh;
+
+        font-family: "Arial";
 
     }
 
@@ -540,6 +557,8 @@ body {
 
         font-size: 4rem;
 
+        font-family: 'Bungee', cursive;
+
     }
 
     main > article.game > img {
@@ -575,6 +594,8 @@ body {
         font-weight: bold;
         color: var(--text);
 
+        font-family: 'Arial';
+
     }
 
     main > article.game > span > a {
@@ -589,6 +610,8 @@ body {
         font-weight: bold;
 
         transition: var(--transition);
+
+        font-family: 'Bungee', cursive;
 
     }
 
@@ -615,6 +638,8 @@ body {
         margin-bottom: 10vh;
         margin-top: 15vh;
 
+        font-family: 'Bungee', cursive;
+
     }
 
     main.after_register > span {
@@ -623,6 +648,8 @@ body {
         width: 70vw;
 
         font-size: 3rem;
+
+        font-family: 'Arial';
 
     }
 
@@ -661,7 +688,7 @@ body {
 
     main.account > h1 {
 
-        font-family: 'Roboto Mono';
+        font-family: 'Bungee', cursive;
         color: var(--text);
         font-size: 3.5rem;
 
@@ -671,7 +698,7 @@ body {
 
         outline: none;
 
-        font-family: 'Arial';
+        font-family: 'Bungee', cursive;
 
         width: 20vw;
         height: 10vw;
@@ -729,6 +756,8 @@ body {
         font-size: 4rem;
         color: var(--text);
 
+        font-family: 'Bungee', cursive;
+
     }
 
     main.account > article.achievements > h2 {
@@ -740,6 +769,8 @@ body {
 
         display: inline-block;
         max-width: 75vw;
+
+        font-family: "Arial";
 
     }
 
@@ -844,6 +875,8 @@ body {
         font-size: 4rem;
         margin-bottom: 5vh;
 
+        font-family: 'Bungee', cursive;
+
     }
 
     main.account > article.scoreboards > div {
@@ -865,21 +898,6 @@ body {
 
     }
 
-    main.account > article.scoreboards > div > span:first-of-type {
-
-        display: inline-block;
-        width: 72vw;
-        height: 7vh;
-        background-color: var(--secondary-color);
-
-        line-height: 7vh;
-
-        color: var(--main-color);
-        font-size: 3rem;
-        font-weight: bold;
-
-    }
-
     main.account > article.scoreboards > div > span{
 
         display: table-cell;
@@ -896,6 +914,25 @@ body {
 
         border-left: 0.5vw solid var(--main-color);
         border-right: 0.5vw solid var(--main-color);
+
+        font-family: 'Arial';
+
+    }
+
+    main.account > article.scoreboards > div > span:first-of-type {
+
+        display: inline-block;
+        width: 72vw;
+        height: 7vh;
+        background-color: var(--secondary-color);
+
+        line-height: 7vh;
+
+        color: var(--main-color);
+        font-size: 3rem;
+        font-weight: bold;
+
+        font-family: 'Bungee', cursive;
 
     }
 
@@ -937,6 +974,44 @@ body {
         padding: 5vh;
         text-align: center;
 
+        font-family: 'Bungee', cursive;
+
+    }
+
+    main.settings > div#notification{
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        width: 72vw;
+        height: 20vw;
+        background-color: var(--main-shade);
+
+        box-sizing: border-box;
+        border: 0.5rem solid var(--secondary-color);
+        border-top: none;
+        border-bottom-left-radius: 5vw;
+        border-bottom-right-radius: 5vw;
+
+        color: var(--text);
+
+        font-size: 3rem;
+
+        position: fixed;
+        top: 0;
+        left: 14vw;
+        z-index: 3;
+        padding: 2vh;
+
+        transition: calc(var(--transition) * 2);
+        
+    }
+
+    main.settings > div#notification.active{
+
+        top: 15vh;
+
     }
 
     main.settings > input[type="text"] {
@@ -955,18 +1030,20 @@ body {
 
         color: var(--text);
 
+        font-size: 3rem;
+
+        font-family: 'Arial';
+
     }
 
     main.settings > input[type="text"] + button {
 
         outline: none;
 
-        font-family: 'Arial';
-
         width: 15vw;
         height: 5vh;
 
-        line-height: 3.75vh;
+        line-height: 2.5vh;
 
         color: var(--secondary-color);
         background-color: var(--main-color);
@@ -984,6 +1061,11 @@ body {
 
         text-decoration: none;
         font-size: 1.75rem;
+
+        position: relative;
+        top: 0.5vh;
+
+        font-family: 'Bungee', cursive;
 
     }
 
@@ -1046,6 +1128,8 @@ body {
         margin-top: 2.5vh;
         margin-bottom: 2.5vh;
 
+        font-family: 'Bungee', cursive;
+
     }
 
     main.achievements > div.achievement {
@@ -1091,6 +1175,8 @@ body {
         font-size: 1.8rem;
         background-color: var(--main-shade);
 
+        font-family: 'Bungee', cursive;
+
     }
 
     main.achievements > div.achievement > span.description {
@@ -1102,6 +1188,8 @@ body {
         border-top: 0.1vw solid;
         border-image: linear-gradient(90deg, rgba(255,255,255,0), rgba(255, 255, 255, 1), rgba(255,255,255,0));
         margin-bottom: 4vw;
+
+        font-family: 'Arial';
 
     }
 
@@ -1203,12 +1291,16 @@ body {
         color: var(--secondary-color);
         margin-bottom: 3vh;
 
+        font-family: 'Bungee', cursive;
+
     }
 
     body.game > h2{
 
         font-size: 5rem;
         margin-bottom: 2vh;
+
+        font-family: 'Bungee', cursive;
 
     }
 
@@ -1217,12 +1309,16 @@ body {
         font-size: 3rem;
         margin-bottom: 1vh;
 
+        font-family: 'Bungee', cursive;
+
     }
 
     body.game > span, body.game > ul{
 
         font-size: 2rem;
         margin-bottom: 3vh;
+
+        font-family: 'Arial';
 
     }
 

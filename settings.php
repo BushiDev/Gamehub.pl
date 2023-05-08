@@ -20,9 +20,9 @@
 
     <script src="https://kit.fontawesome.com/736d7541bb.js" crossorigin="anonymous"></script>
     <script src="achievement_data.js"></script>
-    <script src="settings.js?v=12" crossorigin="anonymous"></script>
+    <script src="settings.js?v=1" crossorigin="anonymous"></script>
 
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="style.css?v=10">
     <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
     <link rel="manifest" href="manifest.json">
 
@@ -66,6 +66,8 @@
 
     <main class="settings">
 
+        <div id="notification"></div>
+
         Nick<br>
         <input type="text" maxlength="13" id="show_name" value="<?php echo $_SESSION['user_data']['show_name']; ?>"> <button onclick="change_name()">Zmień</button> <br><br><br>
 
@@ -92,7 +94,9 @@
 
             }
         
-        ?><br><br><br>
+        ?>
+        
+        <br><br><br>
 
         Kolor w grach<br>
         <button class="color_changer" style="--color: #f00" onclick="change_color('f00')"></button>

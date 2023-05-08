@@ -11,11 +11,11 @@
     require_once("db_data.php");
     
 
-    function Check_One_Year($id){
+    function Check_Years($id, $years){
 
         $connection = new mysqli("localhost", "root", "", "gamehub.pl");
     
-        $sql = 'SELECT id, register_date FROM users WHERE register_date >= DATEADD(year, -1, GETDATE()) AND id NOT IN (SELECT user_id FROM collected_achievements WHERE achievement_id = '.$id.')';
+        $sql = 'SELECT id, register_date FROM users WHERE register_date >= DATEADD(year, -'.$years.', GETDATE()) AND id NOT IN (SELECT user_id FROM collected_achievements WHERE achievement_id = '.$id.')';
         if($result = $connection->query($sql)){
 
             while($row = $result->fetch_assoc()){
@@ -46,8 +46,8 @@
 
     }
 
-    //Check_One_Year();
-    Check_Snake($ids['snake_1'], 30);
+    Check_Years($ids['one_year'], 1);
+    Check_Snake($ids['snauke_1'], 30);
     Check_Snake($ids['snake_2'], 70);
 
 ?>
