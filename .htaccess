@@ -19,9 +19,9 @@ RewriteRule pong pong.php
 RewriteRule snake snake.php
 RewriteRule tic-tac-toe tic_tac_toe.php
 
-ErrorDocument 403 http://localhost/Gamehub.pl/error.php?code=403
-ErrorDocument 404 http://localhost/Gamehub.pl/error.php?code=404
-ErrorDocument 500 http://localhost/Gamehub.pl/error.php?code=500
-ErrorDocument 503 http://localhost/Gamehub.pl/error.php?code=503
+ErrorDocument 403 http://127.0.0.1/Gamehub.pl/error.php?code=403
+ErrorDocument 404 http://127.0.0.1/Gamehub.pl/error.php?code=404
+ErrorDocument 500 http://127.0.0.1/Gamehub.pl/error.php?code=500
+ErrorDocument 503 http://127.0.0.1/Gamehub.pl/error.php?code=503
 
 Options -Indexes 

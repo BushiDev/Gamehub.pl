@@ -11,7 +11,7 @@
 ?>
 
 <!DOCTYPE html>
-<html lang="pl" style="--secondary-color: <?php echo $_SESSION['user_data']['color'] ?>; --main-color: #1c1c1c">
+<html lang="pl" style="--secondary-color: <?php echo $_SESSION['user_data']['color'] ?>; --main-color: var(--main-shade)">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">

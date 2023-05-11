@@ -3,9 +3,8 @@ var StartGame;
 document.addEventListener("DOMContentLoaded", function(){
 
     var is_game_paused = false;
-
-    var canvas = document.querySelector("canvas");
-    var ctx = canvas.getContext("2d");
+    var canvas;
+    var ctx;
 
     var canvas_data = {
 
@@ -28,7 +27,29 @@ document.addEventListener("DOMContentLoaded", function(){
 
         }
 
+        canvas = document.querySelector("canvas");
+        ctx = canvas.getContext("2d");
+
         canvas.width = canvas.height = canvas_data.size;
+
+        canvas.addEventListener("touchstart", start_touch);
+        canvas.addEventListener("touchmove", touch_move);
+        canvas.addEventListener("click", death_decision);
+        document.addEventListener("keyup", change_snake_direction);
+        canvas.addEventListener("touchstart", touch_death_decision);
+        canvas.addEventListener("click", handle_pause_button_click);
+        canvas.addEventListener("touchstart", function(e){
+
+            var data = {
+                clientX: e.touches[0].pageX,
+                clientY: e.toches[0].pageY
+            };
+
+            handle_pause_button_click(data);
+
+        });
+
+        canvas.addEventListener("click", handle_return_game_button_click);
 
     }
 
@@ -295,8 +316,6 @@ document.addEventListener("DOMContentLoaded", function(){
 
     }
 
-    document.addEventListener("keyup", change_snake_direction);
-
     var touch_data = {
 
         x: 0,
@@ -360,9 +379,6 @@ document.addEventListener("DOMContentLoaded", function(){
         ctx.fillText("Y: "+offset.y, 50, 200);*/
         
     }
-
-    canvas.addEventListener("touchstart", start_touch);
-    canvas.addEventListener("touchmove", touch_move);
 
     var game_speed = 7;
 
@@ -485,9 +501,7 @@ document.addEventListener("DOMContentLoaded", function(){
 
     }
 
-    canvas.addEventListener("click", death_decision);
-
-    function touch_death_decistion(e){
+    function touch_death_decision(e){
 
         var data = {
 
@@ -499,8 +513,6 @@ document.addEventListener("DOMContentLoaded", function(){
         death_decision(data);
 
     }
-
-    canvas.addEventListener("touchstart", touch_death_decistion);
 
     function draw_pause_button(){
 
@@ -564,18 +576,6 @@ document.addEventListener("DOMContentLoaded", function(){
 
     }
 
-    canvas.addEventListener("click", handle_pause_button_click);
-    canvas.addEventListener("touchstart", function(e){
-
-        var data = {
-            clientX: e.touches[0].pageX,
-            clientY: e.toches[0].pageY
-        };
-
-        handle_pause_button_click(data);
-
-    });
-
     function show_pause_menu(){;
 
         var score_text = "Twoje punkty: " + snake.tail.length;
@@ -619,8 +619,6 @@ document.addEventListener("DOMContentLoaded", function(){
 
     }
 
-    canvas.addEventListener("click", handle_return_game_button_click);
-
     function game_loop(){
 
         if(!snake.is_alive) return; 
@@ -649,50 +647,54 @@ document.addEventListener("DOMContentLoaded", function(){
 
     StartGame = function(){
 
-        document.querySelector("button").style.setProperty("display", "none");
+        document.querySelector("body.game").innerHTML = "<canvas></canvas>";
 
-        var xmlhttp_main = new XMLHttpRequest();
+        setTimeout(function(){
 
-        xmlhttp_main.onreadystatechange = function(){
+            var xmlhttp_main = new XMLHttpRequest();
 
-            if(xmlhttp_main.readyState == 4 && xmlhttp_main.status == 200){
+            xmlhttp_main.onreadystatechange = function(){
 
-                snake.colors.head = xmlhttp_main.responseText;
+                if(xmlhttp_main.readyState == 4 && xmlhttp_main.status == 200){
 
-            }
+                    snake.colors.head = xmlhttp_main.responseText;
 
-        };
+                }
 
-        xmlhttp_main.open("GET", "user_data.php?p=color&o=get");
-        xmlhttp_main.send();
+            };
 
-        var xmlhttp_alternative = new XMLHttpRequest();
+            xmlhttp_main.open("GET", "user_data.php?p=color&o=get");
+            xmlhttp_main.send();
 
-        xmlhttp_alternative.onreadystatechange = function(){
+            var xmlhttp_alternative = new XMLHttpRequest();
 
-            if(xmlhttp_alternative.readyState == 4 && xmlhttp_alternative.status == 200){
+            xmlhttp_alternative.onreadystatechange = function(){
 
-                snake.colors.parts = xmlhttp_alternative.responseText;
+                if(xmlhttp_alternative.readyState == 4 && xmlhttp_alternative.status == 200){
 
-            }
+                    snake.colors.parts = xmlhttp_alternative.responseText;
 
-        };
+                }
 
-        xmlhttp_alternative.open("GET", "user_data.php?p=alternative_color&o=get");
-        xmlhttp_alternative.send();
+            };
 
-        game_speed = 7;
-        snake.is_alive = true;
-        is_game_paused = false;
+            xmlhttp_alternative.open("GET", "user_data.php?p=alternative_color&o=get");
+            xmlhttp_alternative.send();
 
-        console.log(snake);
+            game_speed = 7;
+            snake.is_alive = true;
+            is_game_paused = false;
 
-        setup_canvas();
-        setup_tile_data();
-        setup_snake();
-        setup_apple();
+            console.log(snake);
 
-        game_loop();
+            setup_canvas();
+            setup_tile_data();
+            setup_snake();
+            setup_apple();
+
+            game_loop();
+
+        }, 1000);
 
     }
 

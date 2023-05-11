@@ -20,7 +20,7 @@
 
     <script src="https://kit.fontawesome.com/736d7541bb.js" crossorigin="anonymous"></script>
 
-    <link rel="stylesheet" type="text/css" href="style.css?v=2">
+    <link rel="stylesheet" type="text/css" href="style.css?v=223">
     <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
     <link rel="manifest" href="manifest.json">
 
@@ -64,7 +64,7 @@
 
     <main>
 
-        <!--<article class="game">
+        <article class="game">
 
             <img src="images/games/Pong.png" alt="Pong">
             <span>
@@ -75,7 +75,7 @@
 
             </span>
 
-        </article>-->
+        </article>
 
         <article class="game">
 

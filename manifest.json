@@ -2,14 +2,14 @@
 
     "name": "Gamehub.pl",
     "short_name": "Gamehub",
-    "start_url": "http://192.168.40.48/gamehub.pl",
+    "start_url": "http://192.168.1.2/gamehub.pl",
     "display": "standalone",
     "lang": "pl-PL",
     "orientation": "portrait-primary",
     "background_color": "#272727",
     "icons": [{
 
-        "src": "img/logo.png",
+        "src": "images/logo.png",
         "sizes": "512x512",
         "type": "image/png"
 
@@ -23,7 +23,7 @@
             "url": "/pong",
             "icons": [{
 
-                "src": "img/logo.png",
+                "src": "images/logo.png",
                 "sizes": "512x512",
                 "type": "image/png"
         
@@ -37,7 +37,7 @@
             "url": "/logowanie",
             "icons": [{
 
-                "src": "img/logo.png",
+                "src": "images/logo.png",
                 "sizes": "512x512",
                 "type": "image/png"
         
@@ -51,7 +51,7 @@
             "url": "/rejestracja",
             "icons": [{
 
-                "src": "img/logo.png",
+                "src": "images/logo.png",
                 "sizes": "512x512",
                 "type": "image/png"
         

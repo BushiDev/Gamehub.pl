@@ -4,22 +4,23 @@
 
     margin: 0;
     padding: 0;
-
-
-
+    
 }
 
-canvas {
+canvas{
 
     position: absolute;
     top: 50%;
     left: 50%;
+    z-index: 4;
 
     transform: translateX(-50%) translateY(-50%);
 
 }
 
 :root {
+
+    font-size: calc((1vw + 1vh) / 2);
 
     --main-color: #272727;
     --main-shade: #1c1c1c;
@@ -58,30 +59,878 @@ body {
 
 }
 
-@media screen and (orientation: portrait) {
-    :root {
+header{
 
-        font-size: calc((1vw + 1vh) / 2);
+    width: 100vw;
+    text-align: center;
+    background-color: var(--main-shade);
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 4;
+
+}
+
+header > span.logo{
+
+    color: var(--text);
+    font-weight: bold;
+    font-family: 'Arial';
+
+}
+
+header > span.logo > span.logo_color{
+
+    display: inline-block;
+    text-align: center;
+    background-color: var(--secondary-color);
+    color: var(--main-shade);
+
+}
+
+div.box{
+
+    background-color: #1c1c1c;
+    position: relative;
+    overflow: hidden;
+
+}
+
+div.box::after,
+div.box::before {
+
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: -50%;
+    left: -50%;
+
+    animation: rotate-border linear infinite 4s;
+
+    transform-origin: bottom right;
+
+    background-image: linear-gradient(0deg, transparent, var(--secondary-color), var(--secondary-color), transparent);
+
+}
+
+div.box::after {
+
+    transform-origin: top left;
+    top: unset;
+    left: unset;
+    bottom: -50%;
+    right: -50%;
+
+}
+
+div.error_textbox,
+form.login,
+form.register{
+
+    position: absolute;
+    border-radius: 1vh;
+    background-color: var(--main-shade);
+    text-align: center;
+    z-index: 2;
+
+}
+
+form.login > h1,
+form.register > h1{
+
+    color: var(--text);
+    font-size: 5rem;
+    font-family: 'Bungee', cursive;
+
+}
+
+form.login > span > input,
+form.register > span > input{
+
+    border: none;
+    outline: none;
+    inset: none;
+    background-color: transparent;
+    box-sizing: border-box;
+    color: var(--text);
+    font-family: 'Bungee', cursive;
+
+}
+
+form.login > input[type="submit"],
+form.register > input[type="submit"]{
+
+    outline: none;
+    font-family: 'Bungee', cursive;
+    color: var(--secondary-color);
+    background-color: var(--main-shade);
+    transition-duration: var(--transition);
+    font-weight: bold;
+    box-sizing: border-box;
+    cursor: pointer;
+    position: absolute;
+
+}
+
+form.login > input[type="submit"]:hover,
+form.register > input[type="submit"]:hover {
+
+    color: var(--main-shade);
+    background-color: var(--secondary-color);
+
+    -webkit-box-shadow: 0 0 2rem 0 var(--secondary-color);
+    -moz-box-shadow: 0 0 2rem 0 var(--secondary-color);
+    box-shadow: 0 0 2rem 0 var(--secondary-color);
+
+}
+
+form.login > a,
+form.register > a{
+
+    color: var(--text);
+    text-decoration: none;
+    transition-duration: var(--transition);
+    position: absolute;
+    font-family: 'Arial';
+
+}
+
+form.login > a:first-of-type {
+
+    left: 12.5vw;
+
+}
+
+form.login > a:last-of-type {
+
+    right: 12.5vw;
+
+}
+
+form.login > a:hover,
+form.register > a:hover {
+
+    color: var(--secondary-color);
+
+}
+
+form.login > span > span.error,
+form.register > span > span.error{
+
+    display: inline-block;
+    position: absolute;
+    z-index: 7;
+
+}
+
+form.login > span > span.error > i,
+form.register > span > span.error > i{
+
+    color: var(--error);
+
+}
+
+form.login > span > span.error > span,
+form.register > span > span.error > span {
+
+    display: none;
+    position: absolute;
+    font-weight: bold;
+    background-color: var(--error);
+    color: var(--main-color);
+
+}
+
+form.login > span > span.error > i:hover + span,
+form.register > span > span.error > i:hover + span {
+
+    display: inline-block;
+
+}
+
+div.error_textbox {
+
+    color: var(--text);
+
+}
+
+div.error_textbox > h1,
+div.error_textbox > h3{
+
+    font-family: 'Bungee', cursive;
+
+}
+
+div.error_textbox > h4{
+
+    font-family: "Arial";
+
+}
+
+div.error_textbox > span{
+
+    position: relative;
+    font-family: "Arial";
+
+}
+
+div.error_textbox > span > span {
+
+    color: var(--secondary-color);
+
+}
+
+main > article.game {
+
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    box-sizing: border-box;
+
+}
+
+main > article.game > img {
+
+    width: 100%;
+    height: 100%;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+}
+
+main > article.game > span {
+
+    display: inline-block;
+    width: 100%;
+    background-color: var(--main-transparent);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    font-weight: bold;
+    color: var(--text);
+    box-sizing: border-box;
+    font-family: 'Arial';
+    
+}
+
+main > article.game > span > a {
+
+    position: absolute;
+    text-decoration: none;
+    color: var(--secondary-color);
+    font-weight: bold;
+    transition: var(--transition);
+    font-family: 'Bungee', cursive;
+
+}
+
+main > article.game > span > a:hover {
+
+    opacity: 0.2;
+
+}
+
+main > h1.game_ads {
+
+    font-family: 'Bungee', cursive;
+    text-align: center;
+    color: var(--text);
+
+}
+
+main.account{
+
+    width: 100vw;
+    min-height: 85vh;
+
+    text-align: center;
+    position: relative;
+
+}
+
+main.account > img {
+
+    position: absolute;
+    background-color: var(--main-shade);
+    border-radius: 50%;
+    border: 1rem solid var(--main-shade);
+
+}
+
+main.account > h1 {
+
+    font-family: 'Bungee', cursive;
+    color: var(--text);
+    position: relative;
+
+}
+
+main.account > a {
+
+    outline: none;
+    font-family: 'Bungee', cursive;
+    color: var(--secondary-color);
+    background-color: var(--main-color);
+    transition-duration: var(--transition);
+    font-weight: bold;
+    box-sizing: border-box;
+    cursor: pointer;
+    text-decoration: none;
+    position: absolute;
+
+}
+
+main.account > a:hover {
+
+    color: var(--main-shade);
+    background-color: var(--secondary-color);
+    -webkit-box-shadow: 0 0 2rem 0 var(--secondary-color);
+    -moz-box-shadow: 0 0 2rem 0 var(--secondary-color);
+    box-shadow: 0 0 2rem 0 var(--secondary-color);
+
+}
+
+main.account > article.achievements {
+
+    position: absolute;
+
+}
+
+main.account > article.achievements > h1 {
+
+    color: var(--text);
+    font-family: 'Bungee', cursive;
+
+}
+
+main.account > article.achievements > h2 {
+
+    
+    display: inline-block;
+    color: var(--text);
+    position: relative;
+    font-family: "Arial";
+
+}
+
+main.account > article.achievements > div.achievement {
+
+    position: relative;
+    float: left;
+
+}
+
+main.account > article.achievements > div.achievement > span.description,
+main.account > article.achievements > div.achievement > span.name {
+
+    display: none;
+
+}
+
+main.account > article.achievements > div.achievement > i,
+main.account > article.achievements > div.achievement > img {
+
+    position: relative;
+    z-index: 1;
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+
+}
+
+main.account > article.achievements > div.achievement > i {
+
+    display: inline-block;
+    color: var(--text);
+    background-color: var(--main-color);
+
+}
+
+main.account > article.achievements > div.achievement > div {
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    box-sizing: border-box;
+
+
+}
+
+main.account > article.achievements > div.achievement.bronze > div {
+
+    border-color: var(--bronze);
+    box-shadow: inset 0 0 2rem 0 var(--bronze);
+
+}
+
+main.account > article.achievements > div.achievement.silver > div {
+
+    border-color: var(--silver);
+    box-shadow: inset 0 0 2rem 0 var(--silver);
+
+}
+
+main.account > article.achievements > div.achievement.gold > div {
+
+    border-color: var(--gold);
+    box-shadow: inset 0 0 2rem 0 var(--gold);
+
+}
+
+main.account > article.achievements > div.achievement.platinum > div {
+
+    border-color: var(--platinum);
+    box-shadow: inset 0 0 2rem 0 var(--platinum);
+
+}
+
+main.account > article.scoreboards {
+
+    position: absolute;
+
+}
+
+main.account > article.scoreboards > h2 {
+
+    text-align: center;
+    color: var(--text);
+    font-family: 'Bungee', cursive;
+
+}
+
+main.account > article.scoreboards > div {
+
+    margin-left: auto;
+    margin-right: auto;
+    background-color: var(--main-shade);
+
+}
+
+main.account > article.scoreboards > div > span{
+
+    display: table-cell;
+    vertical-align: middle;
+    color: var(--text);
+    font-weight: bold;
+    box-sizing: border-box;
+    font-family: 'Arial';
+
+}
+
+main.account > article.scoreboards > div > span:first-of-type {
+
+    display: inline-block;
+    background-color: var(--secondary-color);
+    color: var(--main-color);
+    font-weight: bold;
+    font-family: 'Bungee', cursive;
+    border: none;
+
+}
+
+main.account > article.scoreboards > div> span:nth-of-type(2) {
+
+    border-left: none;
+
+}
+
+main.account > article.scoreboards > div > span:last-of-type {
+
+    border-right: none;
+
+}
+
+nav {
+
+    position: fixed;
+    z-index: 5;
+
+}
+
+nav > div {
+
+    border-color: var(--text);
+    background-color: var(--main-color);
+    z-index: 2;
+
+}
+
+nav > div > i {
+
+    transition-duration: calc(var(--transition) * 2);
+
+}
+
+nav > a,
+nav > div {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    box-sizing: border-box;
+    cursor: pointer;
+    color: var(--text);
+    position: absolute;
+    left: 0;
+    background-color: var(--main-color);
+
+}
+
+nav > a {
+
+    flex: 0 0 0;
+    text-decoration: none;
+    border-color: var(--color);
+    color: var(--color);
+    transition-duration: var(--transition);
+    transition-delay: calc(0.1s * var(--counter));
+    transform: rotate(0deg) translateX(0vw);
+
+}
+
+
+nav.active > a:hover {
+
+    transition-delay: 0s;
+    background-color: var(--color);
+
+}
+
+nav.active > a:hover > i {
+
+    transition-delay: 0s;
+    color: var(--main-color);
+
+}
+
+nav > a > i {
+
+    transition: 0.5s;
+    transition-delay: calc(0.1s * var(--counter));
+
+}
+
+nav.active > a:hover {
+
+    -webkit-box-shadow: 0 0 2rem 0 var(--color);
+    -moz-box-shadow: 0 0 2rem 0 var(--color);
+    box-shadow: 0 0 2rem 0 var(--color);
+
+}
+
+main.settings {
+
+    text-align: center;
+    font-family: 'Bungee', cursive;
+    color: var(--text);
+
+}
+
+main.settings > div#notification{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--main-shade);
+    box-sizing: border-box;
+    color: var(--text);
+    position: fixed;
+    transition: calc(var(--transition) * 2);
+    
+}
+
+main.settings > input[type="text"] {
+
+    color: var(--text);
+    background-color: transparent;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    box-sizing: border-box;
+    font-family: 'Arial';
+    color: var(--text);  
+
+}
+
+main.settings > input[type="text"] + button {
+
+    outline: none;
+    color: var(--secondary-color);
+    background-color: var(--main-color);
+    transition-duration: var(--transition);
+    font-weight: bold;
+    box-sizing: border-box;
+    cursor: pointer;
+    text-decoration: none;
+    position: relative;
+    font-family: 'Bungee', cursive;
+
+}
+
+main.settings > input[type="text"] + button:hover {
+
+    color: var(--main-shade);
+    background-color: var(--secondary-color);
+    -webkit-box-shadow: 0 0 2rem 0 var(--secondary-color);
+    -moz-box-shadow: 0 0 2rem 0 var(--secondary-color);
+    box-shadow: 0 0 2rem 0 var(--secondary-color);
+
+}
+
+main.settings > button.color_changer {
+
+    background-color: var(--color);
+    border: none;   
+
+}
+
+main.settings > img {
+
+    position: relative;
+    border-radius: 50%;
+    background-color: var(--main-shade);
+
+}
+
+main.achievements > h1{
+
+    color: var(--text);
+    text-align: center;
+    position: relative;
+    font-family: 'Bungee', cursive;
+
+}
+
+main.achievements > h2 {
+
+    color: var(--text);
+    text-align: center;
+    position: relative;
+    font-family: 'Bungee', cursive;
+
+}
+
+main.achievements > div.achievement {
+
+    display: inline-block;
+    position: relative;
+    z-index: 2;
+
+}
+
+main.achievements > div.achievement > span.description,
+main.achievements > div.achievement > span.name {
+
+    display: flex;
+    align-items: center;
+    position: absolute;
+    left: 0;
+    color: var(--text);
+    box-sizing: border-box;
+
+}
+
+main.achievements > div.achievement > span.name {
+
+    background-color: var(--main-shade);
+    font-family: 'Bungee', cursive;
+    font-weight: bold;
+
+}
+
+main.achievements > div.achievement > span.description {
+
+    background-color: var(--main-shade);
+    font-family: 'Arial';
+
+}
+
+main.achievements > div.achievement > i,
+main.achievements > div.achievement > img {
+
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+
+}
+
+main.achievements > div.achievement > i {
+
+    display: inline-block;
+    background-color: var(--main-color);
+    color: var(--text);
+
+}
+
+main.achievements > div.achievement > div {
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    box-sizing: border-box;
+
+}
+
+main.achievements > div.achievement.bronze > div {
+
+    border-color: var(--bronze);
+    box-shadow: inset 0 0 2rem 0 var(--bronze);
+
+}
+
+main.achievements > div.achievement.silver > div {
+
+    border-color: var(--silver);
+    box-shadow: inset 0 0 2rem 0 var(--silver);
+
+}
+
+main.achievements > div.achievement.gold > div {
+
+    border-color: var(--gold);
+    box-shadow: inset 0 0 2rem 0 var(--gold);
+
+} 
+
+main.achievements > div.achievement.platinum > div {
+
+    border-color: var(--platinum);
+    box-shadow: inset 0 0 2rem 0 var(--platinum);
+
+}
+
+main.achievements > div.achievement.blocked > img {
+
+    filter: grayscale(1);
+
+}
+
+main.achievements > div.achievement.blocked > div {
+
+    border-color: var(--blocked);
+    box-shadow: inset 0 0 2rem 0 var(--blocked);
+
+}
+
+button.start_game_button {
+
+    display: block;
+    position: relative;
+    z-index: 5;
+    background-color: var(--main-color);
+    border-radius: 50%;
+    color: var(--secondary-color);
+    box-sizing: border-box;
+
+}
+
+body.game{
+
+    color: var(--text);
+    text-align: center;
+
+}
+
+body.game > h1{
+
+    color: var(--secondary-color);
+    font-family: 'Bungee', cursive;
+
+}
+
+body.game > h2{
+
+    font-family: 'Bungee', cursive;
+
+}
+
+body.game > h3{
+
+    font-family: 'Bungee', cursive;
+
+}
+
+body.game > span, 
+body.game > ul{
+
+    font-family: 'Arial';
+
+}
+
+body.game > span{
+
+    display: inline-block;
+
+}
+
+main.after_register {
+
+    text-align: center;
+    color: var(--text);
+
+}
+
+main.after_register > h1 {
+
+    font-family: 'Bungee', cursive;
+
+}
+
+main.after_register > span {
+
+    display: inline-block;
+    font-family: 'Arial';
+
+}
+
+main.after_register > span > span#timer {
+
+    color: var(--secondary-color);
+
+}
+/**/
+
+@media screen and (orientation: portrait) {
+
+    button.start_game_button {
+
+        width: 30vh;
+        height: 30vh;        
+        border: 2vh solid var(--secondary-color);
+        margin: 35vh auto;
+        font-size: 15rem;
+        padding-left: 2.5rem;
+
+    }
+
+    header {
+
+        height: 15vh;
+        line-height: 15vh;
+        font-size: 5rem;
 
     }
 
     nav {
 
-        width: 10vw;
-        height: 10vw;
-
-        position: fixed;
         bottom: 5vw;
         left: 45vw;
-        z-index: 5;
+        width: 10vw;
+        height: 10vw;
 
     }
 
     nav > div {
 
-        border-color: var(--text);
-        background-color: var(--main-color);
-        z-index: 2;
         font-size: 4rem;
 
     }
@@ -95,33 +944,16 @@ body {
     nav > a,
     nav > div {
 
-        display: inline-block;
         width: 10vw;
         height: 10vw;
         line-height: 10vw;
-        text-align: center;
-        color: var(--text);
         border: 0.5rem solid;
-        border-radius: 50%;
-        box-sizing: border-box;
-        cursor: pointer;
-
-        position: absolute;
-        left: 0;
-
-        background-color: var(--main-color);
 
     }
 
     nav > a {
 
-        text-decoration: none;
-        border-color: var(--color);
-        color: var(--color);
-        transition-duration: var(--transition);
-        transition-delay: calc(0.1s * var(--counter));
         transform-origin: 5vw center;
-        transform: rotate(0deg) translateX(0vw);
         font-size: 3rem;
 
     }
@@ -159,6 +991,7 @@ body {
     nav > a > i {
 
         transition: 0.5s;
+
         transition-delay: calc(0.1s * var(--counter));
 
     }
@@ -166,49 +999,6 @@ body {
     nav.active > a > i {
 
         transform: rotate(calc(180deg / 4 * var(--counter)));
-    }
-
-    button.start_game_button {
-
-        display: block;
-
-        position: relative;
-        z-index: 5;
-
-        width: 30vh;
-        height: 30vh;
-
-        background-color: var(--main-color);
-        border: 2vh solid var(--secondary-color);
-        border-radius: 50%;
-        color: var(--secondary-color);
-
-        margin: 35vh auto;
-
-        box-sizing: border-box;
-
-        font-size: 15rem;
-        padding-left: 2.5rem;
-
-    }
-
-    header {
-
-        width: 100vw;
-        height: 15vh;
-        line-height: 15vh;
-
-        text-align: center;
-
-        background-color: var(--main-shade);
-
-        font-size: 5rem;
-
-        position: fixed;
-        top: 0;
-        left: 0;
-        z-index: 4;
-
     }
 
     main {
@@ -219,28 +1009,17 @@ body {
 
     header > span.logo {
 
-        color: var(--text);
-        font-weight: bold;
         letter-spacing: 0.25rem;
-
-        font-family: 'Arial';
 
     }
 
     header > span.logo > span.logo_color {
 
-        display: inline-block;
         margin-left: 0.25rem;
         padding: 1rem;
         height: 5rem;
         line-height: 5rem;
-        text-align: center;
-
-        background-color: var(--secondary-color);
-
         border-radius: 1rem;
-
-        color: var(--main-shade);
 
     }
 
@@ -249,45 +1028,10 @@ body {
         width: 75vw;
         height: 60vh;
 
-        background-color: #1c1c1c;
-        position: relative;
-
         border-radius: 1vh;
 
         left: 12.5vw;
         top: 5vh;
-
-        overflow: hidden;
-
-    }
-
-    div.box::after,
-    div.box::before {
-
-        content: '';
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        top: -50%;
-        left: -50%;
-
-        animation: rotate-border linear infinite 4s, col linear infinite 10s;
-
-        transform-origin: bottom right;
-
-        background-image: linear-gradient(0deg, transparent, var(--secondary-color), var(--secondary-color), transparent);
-
-    }
-
-    div.box::after {
-
-        transform-origin: top left;
-
-        top: unset;
-        left: unset;
-
-        bottom: -50%;
-        right: -50%;
 
     }
 
@@ -297,79 +1041,43 @@ body {
 
         width: 74vw;
         height: calc(60vh - 1vw);
-        position: absolute;
         top: 0.5vw;
         left: 0.5vw;
 
-        border-radius: 1vh;
-
-        background-color: var(--main-shade);
-
-        z-index: 2;
         inset: 0.5vw;
-        text-align: center;
 
     }
 
     form.login > h1,
     form.register > h1 {
 
-        color: var(--text);
         margin-top: 5rem;
         margin-bottom: 5rem;
-        font-size: 5rem;
-        font-family: 'Bungee', cursive;
 
     }
 
     form.login > span > input,
     form.register > span > input {
 
-        border: none;
-        outline: none;
-        inset: none;
         border-bottom: 0.5rem solid var(--secondary-color);
-        background-color: transparent;
         height: 6vh;
-
         margin-bottom: 5rem;
-        box-sizing: border-box;
         padding: 1vw;
-
-        color: var(--text);
-
-        font-family: 'Bungee', cursive;
+        width: 34vw;
 
     }
 
     form.login > input[type="submit"],
     form.register > input[type="submit"] {
 
-        outline: none;
-
-        font-family: 'Bungee', cursive;
-
-        width: 30vw;
+        width: 34vw;
         height: 6vh;
-
-        color: var(--secondary-color);
-        background-color: var(--main-shade);
-
         border: 0.5rem solid var(--secondary-color);
         border-radius: 3vh;
-
-        transition-duration: var(--transition);
-        font-weight: bold;
-
-        box-sizing: border-box;
-        padding: 1vw;
-
-        cursor: pointer;
-
-        position: absolute;
-
+        padding: 1vw; 
         bottom: calc(6vh + 1vw);
-        left: 22.5vw;
+        left: 20vw;
+        font-size: 2rem;
 
     }
 
@@ -388,15 +1096,7 @@ body {
     form.login > a,
     form.register > a {
 
-        color: var(--text);
-        text-decoration: none;
         font-size: 2rem;
-
-        transition-duration: var(--transition);
-
-        position: absolute;
-
-        font-family: 'Arial';
 
     }
 
@@ -413,32 +1113,11 @@ body {
 
     }
 
-    form.login > a:first-of-type {
-
-        left: 12.5vw;
-
-    }
-
-    form.login > a:last-of-type {
-
-        right: 12.5vw;
-
-    }
-
-    form.login > a:hover,
-    form.register > a:hover {
-
-        color: var(--secondary-color);
-
-    }
-
     form.login > span > span.error,
     form.register > span > span.error {
 
-        display: inline-block;
         height: 6vh;
         line-height: 6vh;
-        position: absolute;
         right: 10vw;
 
     }
@@ -446,7 +1125,6 @@ body {
     form.login > span > span.error > i,
     form.register > span > span.error > i {
 
-        color: var(--error);
         font-size: 4rem;
 
     }
@@ -454,31 +1132,9 @@ body {
     form.login > span > span.error > span,
     form.register > span > span.error > span {
 
-        display: none;
-
         width: 40vw;
-        position: absolute;
         left: -42.5vw;
-
         font-size: 2rem;
-        font-weight: bold;
-
-        background-color: var(--error);
-
-        color: var(--main-color);
-
-    }
-
-    form.login > span > span.error > i:hover + span,
-    form.register > span > span.error > i:hover + span {
-
-        display: inline-block;
-
-    }
-
-    div.error_textbox {
-
-        color: var(--text);
 
     }
 
@@ -487,15 +1143,11 @@ body {
         margin-top: 15vh;
         font-size: 5rem;
 
-        font-family: 'Bungee', cursive;
-
     }
 
     div.error_textbox > h1 {
 
         font-size: 10rem;
-
-        font-family: 'Bungee', cursive;
 
     }
 
@@ -503,40 +1155,20 @@ body {
 
         font-size: 3rem;
 
-        font-family: "Arial";
-
     }
 
     div.error_textbox > span {
 
         font-size: 2rem;
-        position: relative;
         top: 5vh;
-
-        font-family: "Arial";
-
-    }
-
-    div.error_textbox > span > span {
-
-        color: var(--secondary-color);
 
     }
 
     main > article.game {
 
+        margin-top: 5vh;
         width: 90vw;
         height: 50vw;
-
-        margin-left: auto;
-        margin-right: auto;
-
-        margin-top: 5vh;
-
-        position: relative;
-
-        box-sizing: border-box;
-
         border: 1vw solid var(--main-shade);
 
     }
@@ -547,77 +1179,27 @@ body {
 
     }
 
-    main > h1.game_ads {
-
-        text-align: center;
-        color: var(--text);
-
-        margin-top: 6vh;
-        margin-bottom: 20vh;
-
-        font-size: 4rem;
-
-        font-family: 'Bungee', cursive;
-
-    }
-
-    main > article.game > img {
-
-        width: 100%;
-        height: 100%;
-
-        position: absolute;
-        top: 0;
-        left: 0;
-
-    }
-
     main > article.game > span {
 
-        display: inline-block;
-
-        width: 100%;
         height: 10vw;
-        background-color: var(--main-transparent);
-
-        position: absolute;
-        bottom: 0;
-        left: 0;
-
         line-height: 10vw;
-
-        box-sizing: border-box;
-
         padding-left: 5vw;
-
         font-size: 3rem;
-        font-weight: bold;
-        color: var(--text);
-
-        font-family: 'Arial';
-
+        
     }
 
     main > article.game > span > a {
 
-        position: absolute;
         right: 5vw;
-
-        text-decoration: none;
-        color: var(--secondary-color);
-
         font-size: 4.5rem;
-        font-weight: bold;
-
-        transition: var(--transition);
-
-        font-family: 'Bungee', cursive;
 
     }
 
-    main > article.game > span > a:hover {
+    main > h1.game_ads {
 
-        opacity: 0.2;
+        margin-top: 6vh;
+        margin-bottom: 20vh;
+        font-size: 4rem;
 
     }
 
@@ -626,46 +1208,25 @@ body {
         width: 100vw;
         height: 85vh;
 
-        text-align: center;
-        color: var(--text);
-
     }
 
     main.after_register > h1 {
 
         font-size: 4.5rem;
-
         margin-bottom: 10vh;
         margin-top: 15vh;
-
-        font-family: 'Bungee', cursive;
 
     }
 
     main.after_register > span {
 
-        display: inline-block;
         width: 70vw;
-
         font-size: 3rem;
 
-        font-family: 'Arial';
-
     }
 
-    main.after_register > span > span#timer {
+    main.accout{
 
-        color: var(--secondary-color);
-
-    }
-
-    main.account {
-
-        width: 100vw;
-        min-height: 85vh;
-        text-align: center;
-
-        position: relative;
         padding-top: 5vh;
 
     }
@@ -673,70 +1234,30 @@ body {
     main.account > img {
 
         width: 17vw;
-        height: 17vw;
-
-        position: absolute;
+        height: 17vw;        
         top: 5vw;
         left: 5vw;
-
-        background-color: var(--main-shade);
-
-        border-radius: 50%;
-        border: 1rem solid var(--main-shade);
 
     }
 
     main.account > h1 {
 
-        font-family: 'Bungee', cursive;
-        color: var(--text);
-        font-size: 3.5rem;
+        font-size: 3rem;
+        top: 7.5vw;
 
     }
 
     main.account > a {
 
-        outline: none;
-
-        font-family: 'Bungee', cursive;
-
+        border: 0.5rem solid var(--secondary-color);
         width: 20vw;
         height: 10vw;
-
         line-height: 7.5vw;
-
-        color: var(--secondary-color);
-        background-color: var(--main-color);
-
-        border: 0.5rem solid var(--secondary-color);
         border-radius: 3vh;
-
-        transition-duration: var(--transition);
-        font-weight: bold;
-
-        box-sizing: border-box;
         padding: 1vw;
-
-        cursor: pointer;
-
-        position: absolute;
-
         top: 5vw;
         right: 5vw;
-
-        text-decoration: none;
         font-size: 1.75rem;
-
-    }
-
-    main.account > a:hover {
-
-        color: var(--main-shade);
-        background-color: var(--secondary-color);
-
-        -webkit-box-shadow: 0 0 3rem 0 var(--secondary-color);
-        -moz-box-shadow: 0 0 3rem 0 var(--secondary-color);
-        box-shadow: 0 0 3rem 0 var(--secondary-color);
 
     }
 
@@ -744,8 +1265,6 @@ body {
 
         width: 95vw;
         height: 25vw;
-
-        position: absolute;
         top: 27vh;
         left: 2.5vw;
 
@@ -754,114 +1273,44 @@ body {
     main.account > article.achievements > h1 {
 
         font-size: 4rem;
-        color: var(--text);
-
-        font-family: 'Bungee', cursive;
 
     }
 
     main.account > article.achievements > h2 {
 
-        font-size: 3rem;
-        color: var(--text);
-        position: relative;
         top: 5vh;
-
-        display: inline-block;
+        font-size: 3rem;
         max-width: 75vw;
-
-        font-family: "Arial";
 
     }
 
     main.account > article.achievements > div.achievement {
 
-        position: relative;
-        top: 5vh;
         z-index: 2;
-
+        top: 5vh;
         width: 23.75vw;
         height: 23.75vw;
-        float: left;
-
-    }
-
-    main.account > article.achievements > div.achievement > span.description,
-    main.account > article.achievements > div.achievement > span.name {
-
-        display: none;
-
-    }
-
-    main.account > article.achievements > div.achievement > i,
-    main.account > article.achievements > div.achievement > img {
-
-        position: relative;
-        z-index: 1;
-
-        width: 100%;
-        height: 100%;
-
-        cursor: pointer;
 
     }
 
     main.account > article.achievements > div.achievement > i {
 
-        display: inline-block;
-        line-height: 23.75vw;
-        color: var(--text);
         font-size: 15rem;
-        background-color: var(--main-color);
+        line-height: 23.75vw;
 
     }
 
     main.account > article.achievements > div.achievement > div {
 
-        position: absolute;
-        top: 0;
-        left: 0;
-        z-index: 2;
-
         width: 23.75vw;
         height: 23.75vw;
-
-        box-sizing: border-box;
         border: 0.7rem solid var(--text);
-        box-shadow: inset 0 0 3rem 0 var(--text);
-    }
-
-    main.account > article.achievements > div.achievement.bronze > div {
-
-        border-color: var(--bronze);
-        box-shadow: inset 0 0 3rem 0 var(--bronze);
-
-    }
-
-    main.account > article.achievements > div.achievement.silver > div {
-
-        border-color: var(--silver);
-        box-shadow: inset 0 0 3rem 0 var(--silver);
-
-    }
-
-    main.account > article.achievements > div.achievement.gold > div {
-
-        border-color: var(--gold);
-        box-shadow: inset 0 0 3rem 0 var(--gold);
-
-    }
-
-    main.account > article.achievements > div.achievement.platinum > div {
-
-        border-color: var(--platinum);
-        box-shadow: inset 0 0 3rem 0 var(--platinum);
+        box-shadow: inset 0 0 2rem 0 var(--text);
 
     }
 
     main.account > article.scoreboards {
 
-        position: absolute;
         top: 60vh;
         width: 100vw;
 
@@ -869,13 +1318,8 @@ body {
 
     main.account > article.scoreboards > h2 {
 
-        text-align: center;
-        color: var(--text);
-
         font-size: 4rem;
         margin-bottom: 5vh;
-
-        font-family: 'Bungee', cursive;
 
     }
 
@@ -883,11 +1327,6 @@ body {
 
         width: 72vw;
         height: 17vh;
-
-        margin-left: auto;
-        margin-right: auto;
-
-        background-color: var(--main-shade);
         margin-bottom: 6vh;
 
     }
@@ -900,39 +1339,19 @@ body {
 
     main.account > article.scoreboards > div > span{
 
-        display: table-cell;
-        vertical-align: middle;
-
         height: 10vh;
-
-        color: var(--text);
-
         font-size: 2rem;
-        font-weight: bold;
-
-        box-sizing: border-box;
-
         border-left: 0.5vw solid var(--main-color);
         border-right: 0.5vw solid var(--main-color);
-
-        font-family: 'Arial';
 
     }
 
     main.account > article.scoreboards > div > span:first-of-type {
 
-        display: inline-block;
         width: 72vw;
         height: 7vh;
-        background-color: var(--secondary-color);
-
         line-height: 7vh;
-
-        color: var(--main-color);
         font-size: 3rem;
-        font-weight: bold;
-
-        font-family: 'Bungee', cursive;
 
     }
 
@@ -954,57 +1373,26 @@ body {
 
     }
 
-    main.account > article.scoreboards > div> span:nth-of-type(2) {
-
-        border-left: none;
-
-    }
-
-    main.account > article.scoreboards > div > span:last-of-type {
-
-        border-right: none;
-
-    }
-
     main.settings {
 
         font-size: 3rem;
-        color: var(--text);
-
         padding: 5vh;
-        text-align: center;
-
-        font-family: 'Bungee', cursive;
 
     }
 
     main.settings > div#notification{
 
-        display: flex;
-        justify-content: center;
-        align-items: center;
-
         width: 72vw;
         height: 20vw;
-        background-color: var(--main-shade);
-
-        box-sizing: border-box;
         border: 0.5rem solid var(--secondary-color);
         border-top: none;
         border-bottom-left-radius: 5vw;
         border-bottom-right-radius: 5vw;
-
-        color: var(--text);
-
         font-size: 3rem;
-
-        position: fixed;
         top: 0;
         left: 14vw;
         z-index: 3;
         padding: 2vh;
-
-        transition: calc(var(--transition) * 2);
         
     }
 
@@ -1016,77 +1404,32 @@ body {
 
     main.settings > input[type="text"] {
 
-        color: var(--text);
         width: 20vw;
-        background-color: transparent;
-        border: none;
-        outline: none;
         border-bottom: 0.5rem solid var(--secondary-color);
-        background-color: transparent;
-        height: 6vh;
-
-        box-sizing: border-box;
+        height: 6vh;        
         padding: 1vw;
-
-        color: var(--text);
-
-        font-size: 3rem;
-
-        font-family: 'Arial';
+        font-size: 3rem;  
 
     }
 
     main.settings > input[type="text"] + button {
 
-        outline: none;
-
         width: 15vw;
         height: 5vh;
-
         line-height: 2.5vh;
-
-        color: var(--secondary-color);
-        background-color: var(--main-color);
-
         border: 0.5rem solid var(--secondary-color);
         border-radius: 3vh;
-
-        transition-duration: var(--transition);
-        font-weight: bold;
-
-        box-sizing: border-box;
         padding: 1vw;
-
-        cursor: pointer;
-
-        text-decoration: none;
         font-size: 1.75rem;
-
-        position: relative;
         top: 0.5vh;
-
-        font-family: 'Bungee', cursive;
-
-    }
-
-    main.settings > input[type="text"] + button:hover {
-
-        color: var(--main-shade);
-        background-color: var(--secondary-color);
-
-        -webkit-box-shadow: 0 0 3rem 0 var(--secondary-color);
-        -moz-box-shadow: 0 0 3rem 0 var(--secondary-color);
-        box-shadow: 0 0 3rem 0 var(--secondary-color);
 
     }
 
     main.settings > button.color_changer {
 
-        background-color: var(--color);
         width: 10vw;
-        height: 10vw;
-
-        border: none;
+        height: 10vw;   
+        margin: 0.2vh auto;
 
     }
 
@@ -1094,13 +1437,7 @@ body {
 
         width: 30vw;
         height: 30vw;
-
-        background-color: var(--main-shade);
-
-        border-radius: 50%;
-        border: 1rem solid var(--main-shade);
-
-        position: relative;
+        border: 1rem solid var(--main-shade);        
         top: 2vw;
 
     }
@@ -1115,32 +1452,30 @@ body {
     main.achievements {
 
         padding-left: 2vw;
+        padding-right: 2vw;
+
+    }
+
+    main.achievements > h1{
+
+        font-size: 4rem;
+        top: 3vh;
 
     }
 
     main.achievements > h2 {
 
-        color: var(--text);
-        text-align: center;
         font-size: 3rem;
-        position: relative;
-        top: 6vh;
+        top: 3.5vh;
         margin-top: 2.5vh;
         margin-bottom: 2.5vh;
-
-        font-family: 'Bungee', cursive;
 
     }
 
     main.achievements > div.achievement {
 
         margin: 1vw;
-        display: inline-block;
-
-        position: relative;
         top: 5vh;
-        z-index: 2;
-
         width: 30vw;
         height: 30vw;
         margin-bottom: 21vw;
@@ -1149,126 +1484,48 @@ body {
 
     main.achievements > div.achievement:last-of-type {
 
-        margin-bottom: 20vh;
+        margin-bottom: 25vh;
 
     }
 
     main.achievements > div.achievement > span.description,
     main.achievements > div.achievement > span.name {
 
-        display: flex;
-        align-items: center;
-
         width: 30vw;
         height: 12vw;
-        position: absolute;
-        left: 0;
-        color: var(--text);
-        box-sizing: border-box;
         padding: 1vw;
+
     }
 
     main.achievements > div.achievement > span.name {
 
         bottom: -12vw;
-        font-weight: bold;
-        font-size: 1.8rem;
-        background-color: var(--main-shade);
-
-        font-family: 'Bungee', cursive;
+        font-size: 1.5rem;
 
     }
 
     main.achievements > div.achievement > span.description {
 
-        bottom: -24vw;
-        font-size: 1.5rem;
-        background-color: var(--main-shade);
-
         border-top: 0.1vw solid;
         border-image: linear-gradient(90deg, rgba(255,255,255,0), rgba(255, 255, 255, 1), rgba(255,255,255,0));
         margin-bottom: 4vw;
-
-        font-family: 'Arial';
-
-    }
-
-    main.achievements > div.achievement > i,
-    main.achievements > div.achievement > img {
-
-        position: relative;
-        z-index: 1;
-
-        width: 100%;
-        height: 100%;
-
-        cursor: pointer;
+        bottom: -24vw;
+        font-size: 1.3rem;
 
     }
 
     main.achievements > div.achievement > i {
 
-        display: inline-block;
         line-height: 30vw;
-        color: var(--text);
         font-size: 15rem;
-        background-color: var(--main-color);
 
     }
 
     main.achievements > div.achievement > div {
 
-        position: absolute;
-        top: 0;
-        left: 0;
-        z-index: 2;
-
         width: 30vw;
-        height: 30vw;
-
-        box-sizing: border-box;
+        height: 30vw;        
         border: 0.7rem solid;
-    }
-
-    main.achievements > div.achievement.bronze > div {
-
-        border-color: var(--bronze);
-        box-shadow: inset 0 0 3rem 0 var(--bronze);
-
-    }
-
-    main.achievements > div.achievement.silver > div {
-
-        border-color: var(--silver);
-        box-shadow: inset 0 0 3rem 0 var(--silver);
-
-    }
-
-    main.achievements > div.achievement.gold > div {
-
-        border-color: var(--gold);
-        box-shadow: inset 0 0 3rem 0 var(--gold);
-
-    }
-
-    main.achievements > div.achievement.platinum > div {
-
-        border-color: var(--platinum);
-        box-shadow: inset 0 0 3rem 0 var(--platinum);
-
-    }
-
-    main.achievements > div.achievement.blocked > img {
-
-        filter: grayscale(1);
-
-    }
-
-    main.achievements > div.achievement.blocked > div {
-
-        border-color: var(--blocked);
-        box-shadow: inset 0 0 3rem 0 var(--blocked);
-
     }
 
     main > div.addon {
@@ -1278,20 +1535,10 @@ body {
 
     }
 
-    body.game{
-
-        color: var(--text);
-        text-align: center;
-
-    }
-
     body.game > h1{
 
-        font-size: 8rem;
-        color: var(--secondary-color);
         margin-bottom: 3vh;
-
-        font-family: 'Bungee', cursive;
+        font-size: 8rem;
 
     }
 
@@ -1300,7 +1547,702 @@ body {
         font-size: 5rem;
         margin-bottom: 2vh;
 
-        font-family: 'Bungee', cursive;
+    }
+
+    body.game > h3{
+
+        font-size: 3rem;
+        margin-bottom: 1vh;
+
+    }
+
+    body.game > span, 
+    body.game > ul{
+
+        font-size: 2rem;
+        margin-bottom: 3vh;
+    }
+
+    body.game > span{
+
+        max-width: 50vw;
+
+    }
+
+}
+
+@media screen and (orientation: landscape){
+
+    header {
+
+        height: 15vh;
+        line-height: 15vh;
+
+        font-size: 4rem;
+
+    }
+
+    header > span.logo {
+
+        letter-spacing: 0.2rem;
+
+    }
+
+    header > span.logo > span.logo_color {
+
+        margin-left: 0.2rem;
+        padding: 0.75rem;
+        height: 4rem;
+        line-height: 4rem;
+        border-radius: 0.75rem;
+
+    }
+
+    nav{
+
+        top: calc(50vh - 2.5vw);
+        right: 2vw;
+        width: 5vw;
+        height: 5vw;
+
+    }
+
+    nav > div {
+        margin: 0.2vw auto;
+        font-size: 4rem;
+
+    }
+
+    nav > a,
+    nav > div {
+
+        width: 5vw;
+        height: 5vw;
+        line-height: 5vw;
+        border: 0.3rem solid;
+
+    }
+
+    nav > a {
+
+        transform-origin: 2.5vw center;
+        font-size: 2.5rem;
+        transform: scale(0.7);
+
+    }
+
+    nav.active > a {
+
+        transform: rotate(calc(-180deg / 4 * var(--counter) * -1 + 90deg)) translateX(8vw) scale(1);
+
+    }
+
+    nav.active > div > i {
+
+        transform: rotate(135deg);
+
+    }
+
+    nav.active > a:hover > i {
+
+        transition-delay: 0s;
+        color: var(--main-color);
+
+    }
+
+    nav > a > i {
+
+        transition: 0.5s;
+        transition-delay: calc(0.1s * var(--counter));
+
+    }
+
+    nav.active > a > i {
+
+        transform: rotate(calc(180deg / 4 * var(--counter) * -1 - 90deg));
+    }
+
+    div.box{
+
+        width: 45vw;
+        height: 70vh;
+
+        border-radius: 1vw;
+
+        left: 27.5vw;
+        top: 20vh;
+
+    }
+
+    div.error_textbox,
+    form.login,
+    form.register {
+
+        width: calc(45vw - 1vh);
+        height: 69vh;
+        top: 0.5vh;
+        left: 0.5vh;
+        border-radius: 1vw;
+        inset: 0.5vh;
+
+    }
+
+    form.login > h1,
+    form.register > h1 {
+
+        margin-top: 4rem;
+        margin-bottom: 4rem;
+
+    }
+
+    form.login > span > input,
+    form.register > span > input {
+
+        border-bottom: 0.25rem solid var(--secondary-color);
+        height: 4vh;
+        margin-bottom: 3rem;
+        padding: 1vh;
+        width: 20vw;
+
+    }
+
+    form.login > input[type="submit"],
+    form.register > input[type="submit"]{
+
+        width: 12vw;
+
+        height: 8vh;
+        border: 0.25rem solid var(--secondary-color);
+        border-radius: 4vh;
+        bottom: 4rem;
+        left: 15.5vw;
+        font-size: 1.5rem;
+
+    }
+
+    form.register > input[type="submit"]{
+
+        font-size: 1.25rem;
+
+    }
+
+    form.login > a,
+    form.register > a {
+
+        font-size: 1.5rem;
+
+    }
+
+    form.login > a {
+
+        bottom: 22.5vh;
+
+    }
+
+    form.register > a {
+
+        bottom: 17.5vh;
+        right: 12.5vw;
+
+    }
+
+    form.login > span > span.error,
+    form.register > span > span.error {
+
+        height: 4vh;
+        line-height: 4vh;
+        right: 13vw;
+
+    }
+
+    form.login > span > span.error > i,
+    form.register > span > span.error > i {
+
+        font-size: 2rem;
+
+    }
+
+    form.login > span > span.error > span,
+    form.register > span > span.error > span {
+
+        width: 17.5vw;
+        left: -18vw;
+        font-size: 1rem;
+
+    }
+
+    div.error_textbox > h3 {
+
+        margin-top: 10vh;
+        font-size: 4rem;
+
+    }
+
+    div.error_textbox > h1 {
+
+        font-size: 12rem;
+
+    }
+
+    div.error_textbox > h4 {
+
+        font-size: 2rem;
+
+    }
+
+    div.error_textbox > span {
+
+        font-size: 1.5rem;
+        top: 8vh;        
+
+    }
+
+    main > article.game {
+
+        margin: 2.5vw;
+        width: 45vw;
+        height: 25vw;
+        border: 1vh solid var(--main-shade);
+
+        float: left;
+
+    }
+
+    main > article.game:nth-of-type(1), main > article.game:nth-of-type(2){
+
+        margin-top: 7.5vw;
+
+    }
+
+    main > article.game > span {
+
+        height: 10vh;
+        line-height: 10vh;
+        padding-left: 3vw;
+        font-size: 2rem;
+        
+    }main.achievements {
+
+        padding-left: 2vw;
+        padding-right: 2vw;
+
+    }
+
+    main.achievements > h1{
+
+        font-size: 4rem;
+        top: 3vh;
+
+    }
+
+    main.achievements > h2 {
+
+        font-size: 3rem;
+        top: 3.5vh;
+        margin-top: 2.5vh;
+        margin-bottom: 2.5vh;
+
+    }
+
+    main.achievements > div.achievement {
+
+        margin: 1vw;
+        top: 5vh;
+        width: 30vw;
+        height: 30vw;
+        margin-bottom: 21vw;
+
+    }
+
+    main.achievements > div.achievement:last-of-type {
+
+        margin-bottom: 25vh;
+
+    }
+
+    main.achievements > div.achievement > span.description,
+    main.achievements > div.achievement > span.name {
+
+        width: 30vw;
+        height: 12vw;
+        padding: 1vw;
+
+    }
+
+    main.achievements > div.achievement > span.name {
+
+        bottom: -12vw;
+        font-size: 1.5rem;
+
+    }
+
+    main.achievements > div.achievement > span.description {
+
+        border-top: 0.1vw solid;
+        border-image: linear-gradient(90deg, rgba(255,255,255,0), rgba(255, 255, 255, 1), rgba(255,255,255,0));
+        margin-bottom: 4vw;
+        bottom: -24vw;
+        font-size: 1.3rem;
+
+    }
+
+    main.achievements > div.achievement > i {
+
+        line-height: 30vw;
+        font-size: 15rem;
+
+    }
+
+    main.achievements > div.achievement > div {
+
+        width: 30vw;
+        height: 30vw;        
+        border: 0.7rem solid;
+    }
+
+    main > article.game > span > a {
+
+        right: 3vw;
+        font-size: 3rem;
+
+    }
+
+    main > h1.game_ads{
+
+        font-size: 3rem;
+
+    }
+
+    main > article.game:nth-of-type(2n + 1) + h1.game_ads{
+
+        position: relative;
+        top: 30vh;
+        pointer-events: none;
+
+    }
+
+    main.account > img {
+
+        width: 13vw;
+        height: 13vw;        
+        top: calc(3vw + 15vh);
+        left: 3vw;
+
+    }
+
+    main.account > h1 {
+
+        font-size: 4rem;
+        top: calc(4vw + 15vh);
+
+    }
+
+    main.account > a {
+
+        border: 0.5rem solid var(--secondary-color);
+        width: 20vh;
+        height: 10vh;
+        line-height: 5vh;
+        border-radius: 5vh;
+        padding: 1vw;
+        top: calc(3vw + 15vh);
+        right: 3vw;
+        font-size: 1.5rem;
+
+    }
+
+    main.account > article.achievements {
+
+        width: 52vw;
+        height: 14vw;
+        top: 55vh;
+        left: 24vw;
+
+    }
+
+    main.account > article.achievements > h1 {
+
+        font-size: 4rem;
+
+    }
+
+    main.account > article.achievements > h2 {
+
+        top: 5vh;
+        font-size: 2.5rem;
+        max-width: 52vw;
+
+    }
+
+    main.account > article.achievements > div.achievement {
+
+        z-index: 2;
+        top: 1vw;
+        width: 13vw;
+        height: 13vw;
+
+    }
+
+    main.account > article.achievements > div.achievement > i {
+
+        font-size: 15rem;
+        line-height: 13vw;
+
+    }
+
+    main.account > article.achievements > div.achievement > div {
+
+        width: 13vw;
+        height: 13vw;
+        border: 0.7rem solid var(--text);
+        box-shadow: inset 0 0 2rem 0 var(--text);
+
+    }    
+
+    main.account > article.scoreboards {
+
+        top: 100vh;
+        left: 24vw;
+        width: 52vw;
+
+    }
+
+    main.account > article.scoreboards > h2 {
+
+        font-size: 4rem;
+        margin-bottom: 5vh;
+
+    }
+
+    main.account > article.scoreboards > div {
+
+        width: 42vw;
+        height: 20vh;
+        margin-bottom: 6vh;
+
+    }
+
+    main.account > article.scoreboards > div:last-of-type {
+
+        margin-bottom: 15vh;
+
+    }
+
+    main.account > article.scoreboards > div > span{
+
+        height: 11.5vh;
+        font-size: 1.75rem;
+        border-left: 0.5vh solid var(--main-color);
+        border-right: 0.5vh solid var(--main-color);
+
+    }
+
+    main.account > article.scoreboards > div > span:first-of-type {
+
+        width: 42vw;
+        height: 8.5vh;
+        line-height: 8.5vh;
+        font-size: 3rem;
+
+    }
+
+    main.account > article.scoreboards > div#pong_scores > span.pong_score{
+
+        width: 14vw;  
+
+    }
+
+    main.account > article.scoreboards > div#snake_scores > span.snake_score{
+
+        width: 21vw;
+
+    }
+
+    main.account > article.scoreboards > div#tic_tac_toe_scores > span.tic_tac_toe_score{
+
+        width: 10.5vw;
+
+    }
+
+    main.settings {
+
+        font-size: 2rem;
+        padding: 5vh;
+        padding-top: 20vh;
+
+    }
+
+    main.settings > div#notification{
+
+        width: 50vw;
+        height: 20vh;
+        border: 0.5rem solid var(--secondary-color);
+        border-top: none;
+        border-bottom-left-radius: 5vw;
+        border-bottom-right-radius: 5vw;
+        font-size: 3rem;
+        top: -10vh;
+        left: 25vw;
+        z-index: 3;
+        padding: 2vh;
+        
+    }
+
+    main.settings > div#notification.active{
+
+        top: 15vh;
+
+    }
+
+    main.settings > input[type="text"]{
+
+        margin-top: 10vh;
+
+        width: 20vw;
+        border-bottom: 0.35rem solid var(--secondary-color);
+        height: 6vh;        
+        padding: 1vw;
+        font-size: 3rem;  
+
+    }
+
+    main.settings > input[type="text"] + button {
+
+        width: 8vw;
+        height: 7.5vh;
+        line-height: 7.5vh;
+        border: 0.35rem solid var(--secondary-color);
+        border-radius: 3.75vh;
+        font-size: 1.75rem;
+        top: -1vh;
+
+    }
+
+    main.settings > button.color_changer {
+
+        width: 10vh;
+        height: 10vh;
+        margin: 0.15vw auto;   
+
+    }
+
+    main.settings > img {
+
+        width: 30vh;
+        height: 30vh;
+        border: 1rem solid var(--main-shade);        
+        top: 2vw;
+
+    }
+
+    main.settings > img.preview {
+
+        width: 10vh;
+        height: 10vh;
+
+    }
+
+    main.achievements {
+
+        padding-left: 2vw;
+        padding-right: 2vw;
+        padding-top: 20vh;
+
+    }
+
+    main.achievements > h1{
+
+        font-size: 3rem;
+
+    }
+
+    main.achievements > h2 {
+
+        font-size: 2rem;
+        top: 7vh;
+        margin-top: 5vh;
+        margin-bottom: 3vh;
+
+    }
+
+    main.achievements > div.achievement {
+
+        margin: 1vw;
+        top: 5vh;
+        width: 30vh;
+        height: 30vh;
+        margin-bottom: 21vh;
+
+    }
+
+    main.achievements > div.achievement:last-of-type {
+
+        margin-bottom: 25vh;
+
+    }
+
+    main.achievements > div.achievement > span.description,
+    main.achievements > div.achievement > span.name {
+
+        width: 30vh;
+        height: 12vh;
+        padding: 1vw;
+
+    }
+
+    main.achievements > div.achievement > span.name {
+
+        bottom: -12vh;
+        font-size: 1.5rem;
+
+    }
+
+    main.achievements > div.achievement > span.description {
+
+        border-top: 0.1vw solid;
+        border-image: linear-gradient(90deg, rgba(255,255,255,0), rgba(255, 255, 255, 1), rgba(255,255,255,0));
+        margin-bottom: 4vh;
+        bottom: -26vh;
+        font-size: 1.3rem;
+
+    }
+
+    main.achievements > div.achievement > i {
+
+        line-height: 30vh;
+        font-size: 15rem;
+
+    }
+
+    main.achievements > div.achievement > div {
+
+        width: 30vh;
+        height: 30vh;        
+        border: 0.7rem solid;
+    }
+
+    button.start_game_button {
+
+        width: 30vw;
+        height: 30vw;        
+        border: 2vh solid var(--secondary-color);
+        margin: calc(50vh - 17.5vw) 35vw ;
+        font-size: 15rem;
+        padding-left: 2.5rem;
+
+    }
+
+    body.game > h1{
+
+        margin-bottom: 3vh;
+        font-size: 5rem;
+
+    }
+
+    body.game > h2{
+
+        font-size: 4rem;
+        margin-bottom: 2vh;
 
     }
 
@@ -1309,25 +2251,45 @@ body {
         font-size: 3rem;
         margin-bottom: 1vh;
 
-        font-family: 'Bungee', cursive;
-
     }
 
-    body.game > span, body.game > ul{
+    body.game > span, 
+    body.game > ul{
 
         font-size: 2rem;
         margin-bottom: 3vh;
-
-        font-family: 'Arial';
 
     }
 
     body.game > span{
 
-        max-width: 50vw;
-        display: inline-block;
+        max-width: 40vw;
 
     }
+
+    main.after_register {
+
+        width: 100vw;
+        height: 85vh;
+
+    }
+
+    main.after_register > h1 {
+
+        font-size: 3.5rem;
+        margin-bottom: 8vh;
+        margin-top: 40vh;
+
+    }
+
+    main.after_register > span {
+
+        width: 40vw;
+        font-size: 2rem;
+
+    }
+
+    /**/
 
 }
 

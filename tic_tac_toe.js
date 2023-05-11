@@ -27,9 +27,9 @@ document.addEventListener("DOMContentLoaded", function(){
         }
 
     };
-
-    var canvas = document.querySelector("canvas");
-    var context = canvas.getContext("2d");
+    
+    var canvas
+    var context;
 
     function Check_Orientation(){
 
@@ -45,8 +45,41 @@ document.addEventListener("DOMContentLoaded", function(){
 
         }
 
+        canvas = document.querySelector("canvas");
+        context = canvas.getContext("2d");
+
         canvas.width = canvas.height = canvas_data.size;
         canvas_data.lines.width = canvas_data.size / 100;
+
+        canvas.addEventListener("click", function(e){
+
+            var position = {
+    
+                x: e.clientX - canvas.getBoundingClientRect().x,
+                y: e.clientY - canvas.getBoundingClientRect().y
+    
+            };
+    
+            Handle_Player_Side(position);
+            Handle_Player_Click(position);
+            Handle_End_Game_Decision(position);
+    
+        });
+
+        canvas.addEventListener("touchstart", function(e){
+    
+            var position = {
+    
+                x: e.touches[0].pageX - canvas.getBoundingClientRect().x,
+                y: e.toches[0].pageY - canvas.getBoundingClientRect().y
+    
+            };
+    
+            Handle_Player_Side(position);
+            Handle_Player_Click(position);
+            Handle_End_Game_Decision(position);
+    
+        });
 
     }
 
@@ -109,9 +142,10 @@ document.addEventListener("DOMContentLoaded", function(){
                 player_symbol = "O";
                 Draw_Table();
                 game_status = 1;
-                setInterval(function(){
+                var t = setInterval(function(){
 
                     player_can_move = true;
+                    clearInterval(t);
 
                 }, 1000);
 
@@ -272,7 +306,12 @@ document.addEventListener("DOMContentLoaded", function(){
 
             if(game_status == 3){
 
-                setTimeout(Draw_End_Menu("Wygrałeś/aś!", colors.player), 1500);
+                var t = setTimeout(function(){
+
+                    Draw_End_Menu("Wygrałeś/aś!", colors.player);
+                    clearInterval(t);
+
+                }, 1500);
                 console.log("Player win");
                 let xmlhttp = new XMLHttpRequest();
                 xmlhttp.open("GET", "score.php?g=tic_tac_toe&o=win");
@@ -280,7 +319,12 @@ document.addEventListener("DOMContentLoaded", function(){
 
             }else{
 
-                setTimeout(Draw_End_Menu("Przegrałeś/aś!", colors.enemy), 1500);
+                var t = setTimeout(function(){
+
+                    Draw_End_Menu("Przegrałeś/aś!", colors.enemy);
+                    clearInterval(t);
+
+                }, 1500);
                 console.log("Enemy Win");
                 let xmlhttp = new XMLHttpRequest();
                 xmlhttp.open("GET", "score.php?g=tic_tac_toe&o=loose");
@@ -308,7 +352,12 @@ document.addEventListener("DOMContentLoaded", function(){
 
             if(game_status == 5){
 
-                setTimeout(Draw_End_Menu("Remis!", "#fff"), 1500);
+                var t = setTimeout(function(){
+
+                    Draw_End_Menu("Remis!", "#fff");
+                    clearInterval(t);
+
+                }, 1500);
                 console.log("tie");
 
                 let xmlhttp = new XMLHttpRequest();
@@ -323,7 +372,12 @@ document.addEventListener("DOMContentLoaded", function(){
                 if(!player_can_move){
 
                     let randomDealy = (Math.floor(Math.random() * 1500) + 300);
-                    setTimeout(Enemy_Move, randomDealy);
+                    var t = setTimeout(function(){
+
+                        Enemy_Move();
+                        clearInterval(t);
+
+                    }, randomDealy);
 
                 }
 
@@ -354,35 +408,6 @@ document.addEventListener("DOMContentLoaded", function(){
 
     }
 
-    canvas.addEventListener("click", function(e){
-
-        var position = {
-
-            x: e.clientX - canvas.getBoundingClientRect().x,
-            y: e.clientY - canvas.getBoundingClientRect().y
-
-        };
-
-        Handle_Player_Side(position);
-        Handle_Player_Click(position);
-        Handle_End_Game_Decision(position);
-
-    });
-    canvas.addEventListener("touchstart", function(e){
-
-        var position = {
-
-            x: e.touches[0].pageX - canvas.getBoundingClientRect().x,
-            y: e.toches[0].pageY - canvas.getBoundingClientRect().y
-
-        };
-
-        Handle_Player_Side(position);
-        Handle_Player_Click(position);
-        Handle_End_Game_Decision(position);
-
-    });
-
     function Draw_O(position, color){
 
         var center = {
@@ -409,7 +434,6 @@ document.addEventListener("DOMContentLoaded", function(){
 
     function Draw_X(position, color){
 
-
         var center = {
 
             x: (canvas_data.size / 3) * position.x + canvas_data.size / 6,
@@ -418,7 +442,7 @@ document.addEventListener("DOMContentLoaded", function(){
         }
 
         context.lineWidth = canvas_data.lines.width * 3;
-        context.strokeStyle = color
+        context.strokeStyle = color;
         context.beginPath();
         context.moveTo(
             center.x - canvas_data.size / 6 + canvas_data.size / 20,
@@ -504,17 +528,23 @@ document.addEventListener("DOMContentLoaded", function(){
 
     StartGame = function(){
 
-        game_status = 0;
-        player_can_move = false;
-        player_symbol = "";
+        document.querySelector("body.game").innerHTML = "<canvas></canvas>";
 
-        Check_Orientation();
-        Setup_Colors();
-        Setup_Table();
         setTimeout(function(){
 
+            game_status = 0;
+            player_can_move = false;
+            player_symbol = "";
+
             Check_Orientation();
-            Draw_Choose_Side_Menu();
+            Setup_Colors();
+            Setup_Table();
+            setTimeout(function(){
+
+                Check_Orientation();
+                Draw_Choose_Side_Menu();
+
+            }, 1000);
 
         }, 1000);
     }

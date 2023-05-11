@@ -11,19 +11,19 @@
 ?>
 
 <!DOCTYPE html>
-<html lang="pl" style="--secondary-color: <?php echo $_SESSION['user_data']['color'] ?>; --main-color: #1c1c1c">
+<html lang="pl" style="--secondary-color: <?php echo $_SESSION['user_data']['color'] ?>; --main-color: var(--main-shade)">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gamehub.pl - Tic Tac Toe</title>
 
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="style.css?v=2137">
 
     <script src="https://kit.fontawesome.com/736d7541bb.js" crossorigin="anonymous"></script>
     <script src="achievement_data.js"></script>
     <script src="screen.js"></script>
-    <script src="tic_tac_toe.js"></script>
+    <script src="tic_tac_toe.js?v=12"></script>
 
 </head>
 <body class="game">
