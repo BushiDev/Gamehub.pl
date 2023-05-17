@@ -10,11 +10,14 @@ RewriteRule gry index.php
 RewriteRule konto account.php
 RewriteRule osiagniecia achievements.php
 RewriteRule ustawienia settings.php
-RewriteRule rankingi leaderboards.php
+RewriteRule rankingi leaderboard.php
+RewriteRule profil profile.php
+
 RewriteRule logowanie login.php
 RewriteRule rejestracja register.php
 RewriteRule przypomnij-haslo password.php
 RewriteRule wyloguj logout_script.php
+
 RewriteRule pong pong.php
 RewriteRule snake snake.php
 RewriteRule tic-tac-toe tic_tac_toe.php

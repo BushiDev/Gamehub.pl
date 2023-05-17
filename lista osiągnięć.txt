@@ -9,6 +9,6 @@ Gry:
     Snake: 
         -Ale długi! - Zdobądź 30 punktów w grze Snake - bronze
         -Jeszcze dłuższy! - Zdobądź 70 punktów w grze Snake - bronze
-    Pong:
-        -Wzloty i upadki - Wygraj i przegraj w grze Pong 10 razy - bronze
-        -Równi sobie - Zremisuj 10 razy w grze Pong - bronze
+    Tic Tac Toe:
+        -Wzloty i upadki - Wygraj i przegraj w grze Tic Tac Toe 10 razy - bronze
+        -Równi sobie - Zremisuj 10 razy w grze Tic Tac Toe - bronze

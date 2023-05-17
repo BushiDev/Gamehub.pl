@@ -13,7 +13,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gamehub - Błąd 404</title>
+    <title>Gamehub - Błąd <?php echo $_GET['code']; ?></title>
 
     <script src="https://kit.fontawesome.com/736d7541bb.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="style.css?v=2">

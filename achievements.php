@@ -11,7 +11,7 @@
 ?>
 
 <!DOCTYPE html>
-<html lang="pl" style="--secondary-color: <?php echo $_SESSION['user_data']['color'] ?>">
+<html lang="pl" style="--secondary-color: <?php echo $_SESSION['user_data']['color']; ?>">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -76,8 +76,6 @@
 
                 $sql = 'SELECT a.id, a.name, a.description, a.level, a.category, CASE WHEN a.id IN (SELECT c.achievement_id FROM collected_achievements AS c WHERE c.user_id = '.$_SESSION['user_data']['id'].') THEN true ELSE false END AS "is_owned" FROM achievements AS a ORDER BY a.category DESC, a.level, is_owned DESC, a.id;';
 
-                //$sql = 'SELECT a.id, a.name, a.description, a.level, a.category, CASE WHEN a.id IN (SELECT c.achievement_id FROM collected_achievements AS c WHERE c.user_id = '.$_SESSION['user_data']['id'].') THEN true ELSE false END AS "is_owned" FROM achievements AS a ORDER BY a.category DESC, a.level, a.id;';
-
                 if($result = $connection->query($sql)){
 
                     $last_category = "";
@@ -93,7 +91,6 @@
 
                         $level = $row['is_owned'] ? $row['level'] : "blocked";
                         $html = '<div class="achievement '.$level.'" id="ac_'.$row['id'].'"><img src="images/achievements/'.$row['id'].'.png"><div></div><span class="name">'.$row['name'].'</span><span class="description">'.$row['description'].'</span></div>';
-                        //$html = "<pre>".print_r($row, true)."</pre>";
                         echo $html;
 
                     }

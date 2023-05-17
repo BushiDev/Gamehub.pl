@@ -16,20 +16,6 @@
     }],
 
     "shortcuts": [
-        
-        {
-
-            "name": "Pong",
-            "url": "/pong",
-            "icons": [{
-
-                "src": "images/logo.png",
-                "sizes": "512x512",
-                "type": "image/png"
-        
-            }]
-
-        },
 
         {
 

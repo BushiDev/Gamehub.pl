@@ -106,11 +106,8 @@ div.box::before {
     height: 100%;
     top: -50%;
     left: -50%;
-
     animation: rotate-border linear infinite 4s;
-
     transform-origin: bottom right;
-
     background-image: linear-gradient(0deg, transparent, var(--secondary-color), var(--secondary-color), transparent);
 
 }
@@ -126,6 +123,7 @@ div.box::after {
 }
 
 div.error_textbox,
+div.email_verify,
 form.login,
 form.register{
 
@@ -250,12 +248,14 @@ form.register > span > span.error > i:hover + span {
 
 }
 
-div.error_textbox {
+div.error_textbox,
+div.email_verify{
 
     color: var(--text);
 
 }
 
+div.email_verify > h1,
 div.error_textbox > h1,
 div.error_textbox > h3{
 
@@ -263,7 +263,8 @@ div.error_textbox > h3{
 
 }
 
-div.error_textbox > h4{
+div.error_textbox > h4,
+div.email_verify > span{
 
     font-family: "Arial";
 
@@ -276,6 +277,7 @@ div.error_textbox > span{
 
 }
 
+div.email_verify > span > span,
 div.error_textbox > span > span {
 
     color: var(--secondary-color);
@@ -599,6 +601,9 @@ nav.active > a:hover {
 
     transition-delay: 0s;
     background-color: var(--color);
+    -webkit-box-shadow: 0 0 2rem 0 var(--color);
+    -moz-box-shadow: 0 0 2rem 0 var(--color);
+    box-shadow: 0 0 2rem 0 var(--color);
 
 }
 
@@ -613,14 +618,6 @@ nav > a > i {
 
     transition: 0.5s;
     transition-delay: calc(0.1s * var(--counter));
-
-}
-
-nav.active > a:hover {
-
-    -webkit-box-shadow: 0 0 2rem 0 var(--color);
-    -moz-box-shadow: 0 0 2rem 0 var(--color);
-    box-shadow: 0 0 2rem 0 var(--color);
 
 }
 
@@ -847,12 +844,7 @@ body.game > h1{
 
 }
 
-body.game > h2{
-
-    font-family: 'Bungee', cursive;
-
-}
-
+body.game > h2,
 body.game > h3{
 
     font-family: 'Bungee', cursive;
@@ -970,32 +962,6 @@ main.after_register > span > span#timer {
 
     }
 
-    nav.active > a:hover {
-
-        transition-delay: 0s;
-        background-color: var(--color);
-
-        -webkit-box-shadow: 0 0 4rem 0 var(--color);
-        -moz-box-shadow: 0 0 4rem 0 var(--color);
-        box-shadow: 0 0 4rem 0 var(--color);
-
-    }
-
-    nav.active > a:hover > i {
-
-        transition-delay: 0s;
-        color: var(--main-color);
-
-    }
-
-    nav > a > i {
-
-        transition: 0.5s;
-
-        transition-delay: calc(0.1s * var(--counter));
-
-    }
-
     nav.active > a > i {
 
         transform: rotate(calc(180deg / 4 * var(--counter)));
@@ -1027,15 +993,14 @@ main.after_register > span > span#timer {
 
         width: 75vw;
         height: 60vh;
-
         border-radius: 1vh;
-
         left: 12.5vw;
         top: 5vh;
 
     }
 
     div.error_textbox,
+    div.email_verify,
     form.login,
     form.register {
 
@@ -1151,16 +1116,24 @@ main.after_register > span > span#timer {
 
     }
 
-    div.error_textbox > h4 {
+    div.error_textbox > h4,
+    div.email_verify > h1{
 
         font-size: 3rem;
 
     }
 
-    div.error_textbox > span {
+    div.error_textbox > span,
+    div.email_verify > span{
 
         font-size: 2rem;
         top: 5vh;
+
+    }
+
+    div.email_verify > h1{
+
+        margin-top: 25vh;
 
     }
 
@@ -1675,6 +1648,7 @@ main.after_register > span > span#timer {
     }
 
     div.error_textbox,
+    div.email_verify,
     form.login,
     form.register {
 
@@ -1784,13 +1758,21 @@ main.after_register > span > span#timer {
 
     }
 
-    div.error_textbox > h4 {
+    div.error_textbox > h4,
+    div.email_verify > h1{
 
         font-size: 2rem;
 
     }
 
-    div.error_textbox > span {
+    div.email_verify > h1{
+
+        margin-top: 30vh;
+
+    }
+
+    div.error_textbox > span,
+    div.email_verify > span{
 
         font-size: 1.5rem;
         top: 8vh;        
@@ -2286,6 +2268,120 @@ main.after_register > span > span#timer {
 
         width: 40vw;
         font-size: 2rem;
+
+    }
+
+    main.leaderboards{
+
+        text-align: center;
+        color: var(--text);
+
+    }
+
+    main.leaderboards > h1{
+
+        font-family: 'Bungee', cursive;
+
+        margin-top: 20vh;
+        font-size: 3rem;
+
+    }
+
+    main.leaderboards > h2{
+
+        font-family: 'Bungee', cursive;
+        background-color: var(--secondary-color);
+        color: var(--main-shade);
+        position: relative;
+
+        width: 50vw;
+        height: 8vh;
+        line-height: 8vh;
+        margin-top: 5vh;        
+        top: 5vh;
+        left: 25vw;
+
+    }
+
+    main.leaderboards > h2:first-of-type{
+
+        margin-top: 0;
+
+    }
+
+    main.leaderboards > span.ranking_row{
+
+        display: block;
+        position: relative;
+        background-color: var(--main-shade);
+        font-family: 'Arial';
+
+        width: 50vw;
+        height: 16vh;
+        line-height: 16vh;
+        top: 5vh;
+        left: 25vw;
+
+        border-top: 0.25rem solid var(--main-color);
+        border-bottom: 0.25rem solid var(--main-color);
+
+    }
+
+    main.leaderboards > span.ranking_row:first-of-type{
+
+        border-top: none;
+
+    }
+
+    main.leaderboards > span.ranking_row:last-of-type{
+
+        border-bottom: none;
+
+    }
+
+    main.leaderboards > span.ranking_row:last-of-type{
+
+        margin-bottom: 20vh;
+
+    }
+
+    main.leaderboards > span.ranking_row > img{
+
+        width: 12vh;
+        height: 12vh; 
+        position: absolute;
+        top: 2vh;
+        left: 2vh;
+
+        background-color: var(--main-color);
+        border-radius: 50%;
+
+    }
+
+    main.leaderboards > span.ranking_row > a.name{
+
+        font-size: 5rem;
+        text-decoration: none;
+        color: var(--secondary-color);
+        transition: var(--transition);
+
+    }
+
+    main.leaderboards > span.ranking_row > a.name:hover{
+
+        text-shadow: 0 0 1rem var(--secondary-color);
+
+    }
+
+    main.leaderboards > span.ranking_row > span{
+
+        position: absolute;
+        top: 0;
+        right: 0;
+        display: inline-block;
+        height: 16vh;
+        padding-right: 2vh;
+        font-size: 4rem;
 
     }
 

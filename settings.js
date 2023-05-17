@@ -14,7 +14,11 @@ document.addEventListener("DOMContentLoaded", function(){
 
             if(xmlhttp.readyState == 4 && xmlhttp.status == 200){
 
-                console.log(xmlhttp.responseText);
+                if(xmlhttp.responseText == "name_owned"){
+
+                    notification.innerHTML = "Podany nick jest już zajęty";
+
+                }
 
             }
 

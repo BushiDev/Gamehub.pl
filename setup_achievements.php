@@ -83,17 +83,17 @@
             [
 
                 "name" => "Wzloty i upadki",
-                "description" => "Wygraj i przegraj w grze Pong 10 razy",
+                "description" => "Wygraj i przegraj w grze Tic Tac Toe 10 razy",
                 "level" => "bronze",
-                "category" => "Gry - Pong"
+                "category" => "Gry - Tic Tac Toe"
 
             ],
             [
 
                 "name" => "Równi sobie",
-                "description" => "Zremisuj w grze Pong 10 razy",
+                "description" => "Zremisuj w grze Tic Tac Toe 10 razy",
                 "level" => "bronze",
-                "category" => "Gry - Pong"
+                "category" => "Gry - Tic Tac Toe"
 
             ]
 
