@@ -33,7 +33,8 @@
 
                     if(isset($_GET['id'])){ 
 
-                        require_once("db_data.php"); $connection = new mysqli($db_host, $db_user, $db_password, $db_name);
+                        require_once("db_data.php"); 
+                        $connection = new mysqli($db_host, $db_user, $db_password, $db_name);
 
                         if($connection->connect_errno != 0){ 
 

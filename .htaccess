@@ -3,7 +3,7 @@ Order Allow,Deny
 Deny from all
 </FilesMatch>
 
-DirectoryIndex todo.html
+DirectoryIndex index.php
 
 RewriteEngine on
 RewriteRule gry index.php
